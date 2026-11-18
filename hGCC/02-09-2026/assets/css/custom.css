@@ -1,0 +1,172 @@
+.value-item{
+    position: relative;
+}
+
+.value-item:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    height: 70%;
+    width: 2px;
+    background: rgba(255,255,255,.25);
+}
+
+.animation-button .elementor-button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.animation-button .elementor-button::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -190%;
+    width: 220%;
+    height: 190%;
+    background: rgb(214, 146, 18);
+    border-radius: 50% 50% 0 0;
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: bottom 0.5s ease-in-out;
+}
+
+.animation-button .elementor-button:hover::before {
+    bottom: -60%;
+}
+
+.animation-button .elementor-button-text {
+    position: relative;
+    z-index: 2;
+}
+.search-icon-header > div > a.ekit_navsearch-button::after{
+   content:'Search';
+   font-family: var(--e-global-typography-081bd3d-font-family), Sans-serif;
+   font-size: var(--e-global-typography-081bd3d-font-size);
+   font-weight: var(--e-global-typography-081bd3d-font-weight);
+   text-transform: var(--e-global-typography-081bd3d-text-transform);
+   line-height: var(--e-global-typography-081bd3d-line-height);
+   letter-spacing: var(--e-global-typography-081bd3d-letter-spacing);
+   word-spacing: var(--e-global-typography-081bd3d-word-spacing);
+   color: var(--e-global-color-4cdb816);
+}
+
+.search-icon-header > div>   a.ekit_navsearch-button {
+    display: flex;
+    width: max-content !important;
+    gap: 5px;
+}
+.header-menu {
+    position: relative;
+    width: 100%;
+    z-index: 99;
+    background-color: #fff;
+    transition:
+        transform 0.5s ease,
+        opacity 0.3s ease;
+}
+
+.header-menu.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(0);
+    opacity: 1;
+ 
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.3s ease;
+}
+.header-menu.fixed:has(.elementor-widget-elementskit-header-offcanvas .ekit-slide.ekit_isActive) {
+    bottom: 0px;
+}
+.y-btn-animation .elementor-button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: #4c030a;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+/* Water wave */
+.y-btn-animation .elementor-button::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -200%;
+    width: 220%;
+    height: 180%;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: bottom 0.5s ease-in-out;
+}
+
+/* Hover - wave comes from bottom */
+.y-btn-animation .elementor-button:hover::before {
+    bottom: -55%;
+}
+
+/* Hover text */
+.y-btn-animation .elementor-button:hover {
+    color: #4c030a;
+}
+
+.y-btn-animation .elementor-button-text {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.y-btn-animation .elementor-button:hover .elementor-button-text {
+    color: #4c030a;
+}
+.conatc-section .elementor-icon-box-wrapper h3 {
+    margin: 0;
+}
+.conatc-section .elementor-icon-box-wrapper h3 a {
+    color: #fff;
+}
+.conatc-section .elementor-icon-box-wrapper svg {
+    width: 18px;
+}
+
+@media (max-width:1024px) and (min-width:561px){
+    .value-item:nth-child(2)::after, .value-item:nth-child(4)::after{
+            display: none;
+        }
+}
+
+@media (max-width:768px){
+    .footer-grid > :first-child , .footer-grid > :last-child  {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width:560px){
+   .value-item{
+    padding-bottom: 20px;
+   }
+  .value-item:not(:last-child)::after {
+        bottom: 0px;
+        height: 2px;
+        width: 100%;
+    }
+    body .image-boxes .elementor-image-box-wrapper {
+        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        gap: 9px;
+    }
+    .icon-box-left > div >div {
+        justify-content: flex-start !important;
+    }
+
+}

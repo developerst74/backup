@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Listing Feature Carousel  (.cg-lc)
+   Fills its media wrapper (position:relative + aspect-ratio + overflow:hidden).
+   Native scroll-snap = smooth touch swipe on mobile, no JS needed to scroll.
+   ========================================================================== */
+
+.cg-lc {
+  --lc-btn: 44px;
+  --lc-edge: clamp(10px, 1.6vw, 20px);
+  position: absolute;
+  inset: 0;
+  /* no z-index on purpose: the project number + gradient keep painting above */
+}
+
+/* Project number sits after the carousel – never let it block taps */
+.cg-lc~span {
+  pointer-events: none;
+}
+
+/* ---------- Track + slides ---------- */
+.cg-lc .cg-lc__track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  outline-offset: -3px;
+}
+
+.cg-lc .cg-lc__track::-webkit-scrollbar {
+  display: none;
+}
+
+.cg-lc .cg-lc__slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.cg-lc .cg-lc__slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ---------- Arrows ---------- */
+.cg-lc .cg-lc__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: var(--lc-btn);
+  height: var(--lc-btn);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  color: #fff;
+  font-size: 0;
+  line-height: 1;
+  background: rgba(0, 0, 0, .45);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color .2s ease, transform .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cg-lc .cg-lc__btn--prev {
+  left: var(--lc-edge);
+}
+
+.cg-lc .cg-lc__btn--next {
+  right: var(--lc-edge);
+}
+
+.cg-lc .cg-lc__btn:hover,
+.cg-lc .cg-lc__btn:focus-visible {
+  color: #fff;
+  background: rgba(0, 0, 0, .72);
+}
+
+.cg-lc .cg-lc__btn:active {
+  transform: translateY(-50%) scale(.94);
+}
+
+.cg-lc .cg-lc__btn:focus-visible,
+.cg-lc .cg-lc__dot:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---------- Dots ---------- */
+.cg-lc .cg-lc__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.cg-lc .cg-lc__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  background: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* bigger invisible tap target */
+.cg-lc .cg-lc__dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+}
+
+.cg-lc .cg-lc__dot:hover {
+  background: rgba(255, 255, 255, .8);
+}
+
+.cg-lc .cg-lc__dot.is-active {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+/* ---------- Counter "01 / 03" (left, because the project number is bottom-right) ---------- */
+.cg-lc .cg-lc__count {
+  position: absolute;
+  left: 20px;
+  bottom: 14px;
+  z-index: 3;
+  color: #fff;
+  font-family: var(--serif, Georgia, serif);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: .08em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .45);
+  pointer-events: none;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+  .cg-lc {
+    --lc-btn: 36px;
+    --lc-edge: 10px;
+  }
+
+  .cg-lc .cg-lc__dots {
+    bottom: 14px;
+    gap: 7px;
+  }
+
+  .cg-lc .cg-lc__count {
+    left: 14px;
+    bottom: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cg-lc .cg-lc__btn,
+  .cg-lc .cg-lc__dot {
+    transition: none;
+  }
+}
+
+/* Slide counter rendered with the template's own number class (e.g. .btr-sa-list__number) */
+.cg-lc .cg-lc__counter {
+  pointer-events: none;
+}
+
+/* Anchor targets on the Build to Rent page: stop the fixed header covering the card when linked via #slug */
+.btr-sa-list__item[id],
+.btr-sd-card[id] {
+  scroll-margin-top: 110px;
+}

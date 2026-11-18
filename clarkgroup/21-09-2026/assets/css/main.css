@@ -1,0 +1,527 @@
+/*
+ * main.css — Font-face declarations
+ * Font files live in ../fonts/
+ *
+ * Root variables:
+ *   --font-body: "Inter", sans-serif;
+ *   --font-body-alt: "Inter Tight", sans-serif;
+ *   --font-display: "Hedvig Letters Serif", serif;
+ *   --font-heading: "Fraunces", serif;
+ *   --font-number: "Montserrat", sans-serif;
+ *   --font-mono: "IBM Plex Mono", monospace;
+ */
+
+
+/* =====================================================
+ * 1. MONTSERRAT — Variable Font
+ * ===================================================== */
+
+@font-face {
+    font-family: "Montserrat";
+    src:
+        url("../fonts/Montserrat-VariableFont_wght.woff2") format("woff2-variations"),
+        url("../fonts/Montserrat-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src:
+        url("../fonts/Montserrat-Italic-VariableFont_wght.woff2") format("woff2-variations"),
+        url("../fonts/Montserrat-Italic-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* =====================================================
+ * 2. FRAUNCES
+ * ===================================================== */
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+    font-variation-settings: "WONK" 1;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-ThinItalic.woff2") format("woff2");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../fonts/Fraunces_72pt-BlackItalic.woff2") format("woff2");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* =====================================================
+ * 3. FRAUNCES SOFT
+ * ===================================================== */
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-ThinItalic.woff2") format("woff2");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces Soft";
+    src: url("../fonts/Fraunces_72pt_Soft-BlackItalic.woff2") format("woff2");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* =====================================================
+ * 4. FRAUNCES SUPERSOFT
+ * ===================================================== */
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-ThinItalic.woff2") format("woff2");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces SuperSoft";
+    src: url("../fonts/Fraunces_72pt_SuperSoft-BlackItalic.woff2") format("woff2");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* =====================================================
+ * 2. FRAUNCES — Variable Font
+ * ===================================================== */
+
+@font-face {
+    font-family: "Fraunces Variable";
+    src:
+        url("../fonts/Fraunces-VariableFont_SOFT,WONK,opsz,wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    font-variation-settings:
+        "SOFT" 0,
+        "WONK" 1;
+}
+
+@font-face {
+    font-family: "Fraunces Variable";
+    src:
+        url("../fonts/Fraunces-Italic-VariableFont_SOFT,WONK,opsz,wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+    font-variation-settings:
+        "SOFT" 0,
+        "WONK" 1;
+}
+
+/* =====================================================
+ * 5. IBM PLEX MONO
+ * ===================================================== */
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-ThinItalic.woff2") format("woff2");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-ExtraLight.woff2") format("woff2");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-ExtraLightItalic.woff2") format("woff2");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../fonts/IBMPlexMono-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* =====================================================
+ * 6. HEDVIG LETTERS SERIF
+ * ===================================================== */
+
+@font-face {
+    font-family: "Hedvig Letters Serif";
+    src: url("../fonts/HedvigLettersSerif_14pt-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hedvig Letters Serif";
+    src: url("../fonts/HedvigLettersSerif_18pt-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* =====================================================
+ * 7. INTER — Variable Font
+ * ===================================================== */
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-Italic-VariableFont_opsz,wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
+
+
+

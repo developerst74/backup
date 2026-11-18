@@ -1,0 +1,360 @@
+/**
+ * DL Penalty Estimator — frontend styles.
+ * Everything is scoped under .dl-penalty-estimator so nothing here can
+ * leak into or be affected by the rest of the site's CSS.
+ */
+
+.dl-penalty-estimator {
+	--dl-pe-bg: #f7f5ee;
+	--dl-pe-ink: #122019;
+	--dl-pe-body: #4c5449;
+	--dl-pe-green: #0f8a4f;
+	--dl-pe-green-dark: #0b4d2e;
+	--dl-pe-border: #e2ddd0;
+	--dl-pe-pill-border: #d7ddd2;
+	--dl-pe-result-bg: #eaf4ea;
+	--dl-pe-result-border: #cfe6d3;
+	--dl-pe-line-border: #eee9dd;
+	--dl-pe-warn-bg: #f6e5e2;
+	--dl-pe-warn-border: #e2b7ab;
+	--dl-pe-warn-text: #8a3b28;
+	--dl-pe-radius-lg: 18px;
+	--dl-pe-radius-md: 16px;
+	--dl-pe-radius-sm: 10px;
+	--dl-pe-font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+	--dl-pe-font-sans: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+	display: block;
+	max-width: 100% !important;
+	margin: 0 auto;
+	font-family: var(--dl-pe-font-sans);
+	color: var(--dl-pe-ink);
+	box-sizing: border-box;
+    width: 100%;
+}
+
+.dl-penalty-estimator *,
+.dl-penalty-estimator *::before,
+.dl-penalty-estimator *::after {
+	box-sizing: border-box;
+}
+
+.dl-penalty-estimator .dl-pe-card {
+	background: #fff;
+	border: 1px solid var(--dl-pe-border);
+	border-radius: var(--dl-pe-radius-lg);
+	padding: 32px;
+	box-shadow: 0 10px 30px rgba(6, 48, 29, 0.07);
+}
+
+/* Header */
+
+.dl-penalty-estimator .dl-pe-title {
+	font-family: var(--dl-pe-font-serif);
+	font-size: 24px;
+	line-height: 1.25;
+	font-weight: 500;
+	color: var(--dl-pe-ink);
+	margin: 0;
+}
+
+.dl-penalty-estimator .dl-pe-subtitle {
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: var(--dl-pe-body);
+	margin-top: 4px;
+}
+
+/* Question fields */
+
+.dl-penalty-estimator .dl-pe-fields {
+	margin-top: 6px;
+}
+
+.dl-penalty-estimator .dl-pe-field {
+	margin-top: 22px;
+}
+
+.dl-penalty-estimator .dl-pe-field-label {
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--dl-pe-green);
+	font-weight: 700;
+}
+
+.dl-penalty-estimator .dl-pe-pill-group {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 2px;
+}
+
+.dl-penalty-estimator .dl-pe-pill {
+	appearance: none;
+	-webkit-appearance: none;
+	font-family: var(--dl-pe-font-sans);
+	background: var(--dl-pe-bg);
+	color: var(--dl-pe-ink);
+	border: 1.5px solid var(--dl-pe-pill-border);
+	border-radius: 999px;
+	padding: 11px 18px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	margin-right: 8px;
+	margin-top: 8px;
+	transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+}
+
+.dl-penalty-estimator .dl-pe-pill:hover {
+	border-color: var(--dl-pe-green);
+}
+
+.dl-penalty-estimator .dl-pe-pill:active {
+	transform: translateY(1px);
+}
+
+.dl-penalty-estimator .dl-pe-pill:focus-visible {
+	outline: 2px solid var(--dl-pe-green-dark);
+	outline-offset: 2px;
+}
+
+.dl-penalty-estimator .dl-pe-pill.dl-pe-pill-active {
+	background: var(--dl-pe-green);
+	color: #fff;
+	border-color: var(--dl-pe-green);
+}
+
+/* Result area */
+
+.dl-penalty-estimator .dl-pe-result-wrap {
+	margin-top: 4px;
+}
+
+.dl-penalty-estimator .dl-pe-placeholder {
+	margin-top: 24px;
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: var(--dl-pe-body);
+}
+
+.dl-penalty-estimator .dl-pe-result {
+	margin-top: 26px;
+	background: var(--dl-pe-result-bg);
+	border: 1px solid var(--dl-pe-result-border);
+	border-radius: var(--dl-pe-radius-md);
+	padding: 26px;
+}
+
+.dl-penalty-estimator .dl-pe-result-title {
+	font-family: var(--dl-pe-font-serif);
+	font-size: 22px;
+	line-height: 1.25;
+	font-weight: 500;
+	color: var(--dl-pe-ink);
+}
+
+.dl-penalty-estimator .dl-pe-line {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 16px;
+	padding: 12px 0;
+	border-bottom: 1px solid var(--dl-pe-line-border);
+}
+
+.dl-penalty-estimator .dl-pe-line:last-of-type {
+	border-bottom: 1px solid var(--dl-pe-line-border);
+}
+
+.dl-penalty-estimator .dl-pe-line-label {
+	color: var(--dl-pe-body);
+	font-size: 14.5px;
+	flex: 1 1 auto;
+}
+
+.dl-penalty-estimator .dl-pe-line-value {
+	color: var(--dl-pe-ink);
+	font-size: 14.5px;
+	font-weight: 700;
+	text-align: right;
+	max-width: 62%;
+}
+
+.dl-penalty-estimator .dl-pe-note {
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: var(--dl-pe-body);
+	margin-top: 14px;
+}
+
+.dl-penalty-estimator .dl-pe-warning {
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: var(--dl-pe-warn-text);
+	margin-top: 12px;
+	background: var(--dl-pe-warn-bg);
+	border: 1px solid var(--dl-pe-warn-border);
+	border-radius: var(--dl-pe-radius-sm);
+	padding: 12px 14px;
+}
+
+.dl-penalty-estimator .dl-pe-argument {
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: var(--dl-pe-body);
+	margin-top: 12px;
+	font-weight: 600;
+}
+
+/* CTA buttons */
+
+.dl-penalty-estimator .dl-pe-cta {
+	margin-top: 18px;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.dl-penalty-estimator .dl-pe-btn {
+	display: inline-block;
+	font-family: var(--dl-pe-font-sans);
+	font-weight: 700;
+	font-size: 16px;
+	padding: 14px 24px;
+	border-radius: 999px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	border: 1.5px solid transparent;
+	transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.dl-penalty-estimator .dl-pe-btn:focus-visible {
+	outline: 2px solid var(--dl-pe-green-dark);
+	outline-offset: 2px;
+}
+
+.dl-penalty-estimator .dl-pe-btn-primary {
+	background: var(--dl-pe-green);
+	color: #fff;
+	border-color: var(--dl-pe-green);
+	padding: 14px 24px;
+}
+
+.dl-penalty-estimator .dl-pe-btn-primary:hover {
+	background: var(--dl-pe-green-dark);
+	border-color: var(--dl-pe-green-dark);
+	color: #fff;
+}
+
+.dl-penalty-estimator .dl-pe-btn-secondary {
+	background: transparent;
+	color: var(--dl-pe-green);
+	border: 1.5px solid var(--dl-pe-green);
+	padding: 13px 24px;
+    font-size: 16px;
+}
+
+.dl-penalty-estimator .dl-pe-btn-secondary:hover {
+	background: var(--dl-pe-result-bg);
+}
+
+.dl-penalty-estimator .dl-pe-reset {
+	appearance: none;
+	-webkit-appearance: none;
+	display: inline-block;
+	margin-top: 16px;
+	background: none;
+	border: none;
+	color: var(--dl-pe-green);
+	font-family: var(--dl-pe-font-sans);
+	font-weight: 700;
+	font-size: 14px;
+	cursor: pointer;
+	padding: 0;
+}
+
+.dl-penalty-estimator .dl-pe-reset:hover {
+	color: var(--dl-pe-green-dark);
+	text-decoration: underline;
+}
+
+.dl-penalty-estimator .dl-pe-reset:focus-visible {
+	outline: 2px solid var(--dl-pe-green-dark);
+	outline-offset: 2px;
+}
+
+/* Tablet */
+
+@media (max-width: 720px) {
+	.dl-penalty-estimator .dl-pe-card {
+		padding: 26px;
+	}
+
+	.dl-penalty-estimator .dl-pe-title {
+		font-size: 22px;
+	}
+
+	.dl-penalty-estimator .dl-pe-result {
+		padding: 22px;
+	}
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+	.dl-penalty-estimator .dl-pe-card {
+		padding: 20px;
+		border-radius: 14px;
+	}
+
+	.dl-penalty-estimator .dl-pe-title {
+		font-size: 20px;
+	}
+
+	.dl-penalty-estimator .dl-pe-subtitle {
+		font-size: 14px;
+	}
+
+	.dl-penalty-estimator .dl-pe-pill {
+		padding: 10px 15px;
+		font-size: 14px;
+		flex: 1 1 auto;
+		text-align: center;
+	}
+
+	.dl-penalty-estimator .dl-pe-result {
+		padding: 18px;
+		border-radius: 12px;
+	}
+
+	.dl-penalty-estimator .dl-pe-result-title {
+		font-size: 20px;
+	}
+
+	.dl-penalty-estimator .dl-pe-line {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
+	}
+
+	.dl-penalty-estimator .dl-pe-line-value {
+		text-align: left;
+		max-width: 100%;
+	}
+
+	.dl-penalty-estimator .dl-pe-cta {
+		flex-direction: column;
+	}
+
+	.dl-penalty-estimator .dl-pe-btn {
+		width: 100%;
+	}
+}
+
+
+.dl-penalty-estimator{
+    max-width: 100%;
+}

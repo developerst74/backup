@@ -1,0 +1,624 @@
+r footer · CSS
+
+/* ==========================================================
+   GLOBAL TOKENS
+   Same values as main-sections.optimized.css so header/footer
+   hovers feel identical to the rest of the site. If both files
+   load together you can delete this block and keep the one
+   in main-sections.optimized.css — kept here too so this file
+   also works standalone.
+========================================================== */
+:root {
+    --ease-base: .35s ease;
+    --c-black: #000;
+    --c-dark: #111;
+    --c-white: #fff;
+    --radius-pill: 999px;
+    --radius-circle: 50%;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background: transparent;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(20px, 2vw, 30px);
+    min-height: 100px;
+    padding: 40px 0px;
+}
+
+.header-logo img {
+    height: clamp(56px, 5vw, 80px);
+    width: auto;
+    transition: transform var(--ease-base);
+}
+
+.header-logo:hover img {
+    transform: scale(1.05);
+}
+
+.header-nav ul,
+.header-nav .header-menu-list {
+    display: flex;
+    gap: clamp(18px, 2vw, 28px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav a {
+    position: relative;
+    color: var(--c-white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: color .3s ease;
+}
+
+.header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--c-white);
+    transition: width .3s ease;
+}
+
+.header-nav a:hover::after {
+    width: 100%;
+}
+
+span.header-address {
+    max-width: 250px;
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: var(--c-white);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.header-contact a {
+    color: var(--c-white);
+}
+
+.header-email-phone {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Pill button — same pattern as .hero-btn / .cta-btn / .bottom-cta-btn
+   in main-sections.optimized.css: ring border, fill sweep, icon
+   slides + rotates -45deg on hover. */
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 42px;
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-radius: var(--radius-pill);
+    color: var(--c-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    overflow: hidden;
+    position: relative;
+    transition: var(--ease-base);
+}
+
+.header-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--c-white);
+    transform: translateX(-101%);
+    transition: var(--ease-base);
+    z-index: -1;
+}
+
+.header-cta:hover::before {
+    transform: translateX(0);
+}
+
+.header-cta:hover {
+    color: var(--c-black) !important;
+}
+
+.header-cta span,
+.mobile-cta span {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-white);
+    color: var(--c-black);
+    transition: transform var(--ease-base);
+}
+
+.header-cta:hover span {
+    transform: translateX(5px) rotate(-45deg);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: var(--c-black);
+    color: #b3b3b3;
+    padding: 60px 0px;
+}
+
+.footer-top {
+    max-width: 1440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-logo {
+    max-width: 152px;
+    height: auto;
+    margin-bottom: 16px;
+}
+
+.footer-tagline {
+    max-width: 400px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.footer-social {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-circle);
+    background: rgba(255, 255, 255, .08);
+    color: var(--c-white);
+    transition: var(--ease-base);
+}
+
+.footer-social:hover {
+    background: var(--c-white);
+    color: var(--c-black);
+    transform: translateY(-4px);
+}
+
+.footer-social:hover svg path {
+    fill: var(--c-black) !important;
+}
+
+.footer-col h4 {
+    color: var(--c-white);
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    opacity: .7;
+    font-weight: 400;
+}
+
+.footer-col ul,
+.footer-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-col li,
+.footer-menu-list li {
+    margin-bottom: 12px;
+}
+
+.footer-col a,
+.footer-menu-list a,
+.footer-bottom-links a {
+    color: var(--c-white) !important;
+    text-decoration: none;
+    position: relative;
+    font-size: 15px;
+}
+
+.footer-col a::after,
+.footer-menu-list a::after,
+.footer-bottom-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 1px;
+    background: var(--c-white);
+    transition: .3s ease;
+}
+
+.footer-col a:hover::after,
+.footer-menu-list a:hover::after,
+.footer-bottom-links a:hover::after {
+    width: 100%;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-bottom {
+    max-width: 1440px;
+    margin: auto;
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin-bottom: 0px;
+}
+
+/* ==========================================================
+   FOOTER ACCORDION (mobile only)
+   Base/desktop state: button is inert, chevron hidden, content
+   always fully visible. The @media (max-width:767px) block
+   below is what actually turns this into a working accordion —
+   everything here just sets up the neutral desktop baseline.
+========================================================== */
+.footer-col-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0 0 18px;
+    cursor: default;
+    text-align: left;
+}
+
+.footer-col-toggle h4 {
+    margin-bottom: 0;
+}
+
+.footer-col-chevron {
+    display: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-white);
+    opacity: .7;
+    transition: transform .3s ease;
+    flex-shrink: 0;
+}
+
+.footer-col-chevron svg {
+    width: 12px;
+    height: 8px;
+    display: block;
+}
+
+.footer-col-content {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows .35s ease;
+}
+
+.footer-col-content>ul {
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* ===== MOBILE MENU (hidden on desktop) ===== */
+.mobile-toggle,
+.mobile-menu {
+    display: none;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   Consolidated: each breakpoint now has exactly one block
+   (previously max-width:1023px was split across two separate
+   blocks — merged here).
+========================================================== */
+@media (max-width:1200px) {
+    .header-cta {
+        padding: 10px 28px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width:1023px) {
+
+    .header-nav,
+    .header-address,
+    .header-cta {
+        display: none;
+    }
+
+    .header-inner {
+        min-height: 80px;
+        padding-inline: 28px;
+    }
+
+    /* Without these, the logo and hamburger button can get squeezed
+       or stretched unevenly by flexbox once other header items are
+       hidden — this keeps both at their natural size regardless of
+       how much space is left. */
+    .header-logo {
+        flex-shrink: 0;
+    }
+
+    .header-logo img {
+        max-width: 100%;
+        display: block;
+    }
+
+    .mobile-toggle {
+        flex-shrink: 0;
+    }
+
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+        border: none
+    }
+
+    .mobile-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .mobile-toggle span {
+        width: 28px;
+        height: 2px;
+        background: var(--c-white);
+        transition: .3s;
+    }
+
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 420px;
+        height: 100vh;
+        backdrop-filter: blur(40px);
+        background: #00000099;
+        transition: .4s;
+        z-index: 9999;
+        padding: 25px;
+        overflow: auto;
+    }
+
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .mobile-logo img {
+        height: 42px;
+    }
+
+    .mobile-close {
+        background: none;
+        border: 0;
+        color: var(--c-white);
+        font-size: 34px;
+        cursor: pointer;
+    }
+
+    .mobile-menu-list {
+        list-style: none;
+        margin: 40px 0;
+        padding: 0;
+    }
+
+    .mobile-menu-list li {
+        margin-bottom: 22px;
+    }
+
+    .mobile-menu-list a {
+        color: var(--c-white);
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .mobile-contact {
+        border-top: 1px solid rgba(255, 255, 255, .1);
+        padding-top: 30px;
+    }
+
+    .mobile-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, .4);
+        border-radius: 50px;
+        padding: 15px;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 30px;
+        color: var(--c-white) !important;
+        text-decoration: none;
+        gap: 14px;
+    }
+
+    .mobile-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        color: var(--c-white);
+        text-decoration: none;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    .mobile-contact-item p {
+        margin: 0;
+    }
+
+    .mobile-contact-item span {
+        color: var(--c-white);
+    }
+
+    .mobile-icon {
+        width: 24px;
+        min-width: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2px;
+    }
+
+    .mobile-icon svg {
+        display: block;
+    }
+}
+
+@media (max-width:767px) {
+    .footer-brand {
+        margin-bottom: 28px;
+    }
+
+    .footer-tagline {
+        max-width: 100%;
+    }
+
+    .header-logo img {
+        height: clamp(44px, 12vw, 56px);
+        width: auto;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0px;
+    }
+
+    .footer-contact-list li {
+        justify-content: center;
+    }
+
+    .footer-logo {
+        display: inline-flex;
+    }
+
+    .site-footer {
+        padding: 0px 0px;
+    }
+
+    /* ----- Footer accordion becomes active here ----- */
+    .footer-col {
+        border-top: 1px solid rgba(255, 255, 255, .1);
+        padding: 18px 0;
+        text-align: left;
+    }
+
+    .footer-col:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .footer-col-toggle {
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .footer-col-chevron {
+        display: flex;
+    }
+
+    .footer-col-toggle[aria-expanded="true"] .footer-col-chevron {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    .footer-col-content {
+        grid-template-rows: 0fr;
+    }
+
+    .footer-col-content.is-open {
+        grid-template-rows: 1fr;
+    }
+
+    .footer-col-content.is-open>ul {
+        padding-top: 16px;
+    }
+
+    .footer-contact-list li {
+        justify-content: flex-start;
+    }
+
+    .header-inner {
+        padding-inline: 20px;
+    }
+}
+
+@media (max-width:480px) {
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+
+@media (max-width:380px) {
+
+
+    .header-nav,
+    .header-contact,
+    .header-cta {
+        display: none;
+    }
+}

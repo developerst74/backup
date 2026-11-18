@@ -1,0 +1,364 @@
+/* ── ST Popup Publish Settings Modal ────────────────────────────────── */
+
+/* Conditions menu item in Elementor's publish dropdown */
+#st-popup-conditions-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #495157;
+    transition: background .15s;
+    border-top: 1px solid #e5e7eb;
+}
+#st-popup-conditions-btn:hover {
+    background: #f5f3ff;
+    color: #6366f1;
+}
+#st-popup-conditions-btn .eicon-filter {
+    font-size: 16px;
+    color: #6366f1;
+}
+
+/* The modal overlay — pointer-events none so editor stays usable */
+#st-publish-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 9999998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Allow clicks to pass through to editor EXCEPT on the modal itself */
+    pointer-events: none;
+}
+
+/* Modal box gets pointer events back */
+#st-publish-modal {
+    pointer-events: all;
+    background: #fff;
+    border-radius: 6px;
+    width: 900px;
+    max-width: 95vw;
+    height: 580px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden;
+}
+
+/* Modal header */
+.st-pm-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+.st-pm-modal-head .st-pm-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.st-pm-modal-head .st-pm-logo span {
+    background: #6366f1;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.st-pm-modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    line-height: 1;
+}
+.st-pm-modal-close:hover { background: #f3f4f6; color: #374151; }
+
+/* Modal body: sidebar + content */
+.st-pm-modal-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Left sidebar */
+.st-pm-sidebar {
+    width: 240px;
+    border-right: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+.st-pm-tab {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 20px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all .15s;
+}
+.st-pm-tab:hover { background: #f9fafb; }
+.st-pm-tab.active {
+    background: #f5f3ff;
+    border-left-color: #6366f1;
+}
+.st-pm-tab-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+.st-pm-tab.active .st-pm-tab-icon { background: #ede9fe; }
+.st-pm-tab-text h4 { margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #111827; }
+.st-pm-tab-text p  { margin: 0; font-size: 12px; color: #6b7280; line-height: 1.4; }
+
+/* Right content */
+.st-pm-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px 32px;
+}
+.st-pm-panel { display: none; }
+.st-pm-panel.active { display: block; }
+
+/* Empty state */
+.st-pm-empty {
+    text-align: center;
+    padding: 40px 20px;
+}
+.st-pm-empty .st-pm-empty-icon {
+    font-size: 60px;
+    color: #d1d5db;
+    margin-bottom: 16px;
+}
+.st-pm-empty h3 { font-size: 20px; color: #374151; margin: 0 0 10px; }
+.st-pm-empty p  { font-size: 14px; color: #6b7280; margin: 0 0 24px; }
+.st-pm-add-btn {
+    padding: 10px 24px;
+    background: #6b7280;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    cursor: pointer;
+    transition: background .15s;
+}
+.st-pm-add-btn:hover { background: #374151; }
+
+/* Condition rows */
+.st-pm-cond-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 10px 14px;
+}
+.st-pm-cond-row select {
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 13px;
+    background: #fff;
+    flex: 1;
+}
+.st-pm-cond-row .st-pm-remove {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.st-pm-cond-row .st-pm-remove:hover { background: #fef2f2; color: #dc2626; }
+
+/* Trigger rows */
+.st-pm-trigger-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color .15s;
+}
+.st-pm-trigger-row:hover { border-color: #6366f1; }
+.st-pm-trigger-row.active { border-color: #6366f1; background: #f5f3ff; }
+.st-pm-trigger-info h4 { margin: 0 0 3px; font-size: 14px; font-weight: 600; color: #111827; }
+.st-pm-trigger-info p  { margin: 0; font-size: 12px; color: #6b7280; }
+.st-pm-trigger-toggle {
+    width: 40px;
+    height: 22px;
+    background: #d1d5db;
+    border-radius: 11px;
+    position: relative;
+    transition: background .2s;
+    flex-shrink: 0;
+}
+.st-pm-trigger-toggle.on { background: #6366f1; }
+.st-pm-trigger-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 18px; height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    transition: left .2s;
+}
+.st-pm-trigger-toggle.on::after { left: 20px; }
+
+/* Trigger sub-settings */
+.st-pm-trigger-settings {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 14px 16px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none;
+}
+.st-pm-trigger-settings.show { display: block; }
+.st-pm-trigger-settings label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 4px;
+}
+.st-pm-trigger-settings input,
+.st-pm-trigger-settings select {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 13px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Advanced rules */
+.st-pm-rule-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.st-pm-rule-row select,
+.st-pm-rule-row input {
+    padding: 7px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 13px;
+    flex: 1;
+}
+.st-pm-rule-row .st-pm-remove {
+    background: none; border: none;
+    color: #9ca3af; cursor: pointer;
+    font-size: 16px; padding: 2px 6px;
+    border-radius: 4px;
+}
+.st-pm-rule-row .st-pm-remove:hover { background: #fef2f2; color: #dc2626; }
+
+/* Modal footer */
+.st-pm-modal-foot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 14px 24px;
+    border-top: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+.st-pm-foot-save-close {
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.st-pm-foot-save-close:hover { color: #374151; }
+.st-pm-foot-next {
+    padding: 10px 28px;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    cursor: pointer;
+    transition: background .15s;
+}
+.st-pm-foot-next:hover { background: #4f46e5; }
+
+/* Section title */
+.st-pm-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.st-pm-add-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6366f1;
+    cursor: pointer;
+    margin-top: 8px;
+    font-weight: 600;
+}
+.st-pm-add-link:hover { color: #4f46e5; }
+
+/* ── Frequency box ───────────────────────────────────────────────────── */
+.st-pm-freq-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+}
+.st-pm-freq-box select:focus,
+.st-pm-freq-box input:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(99,102,241,.12);
+}

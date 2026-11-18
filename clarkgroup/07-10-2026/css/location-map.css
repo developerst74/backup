@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Reusable location map (lm-info--location)
+   Same look as the original .lm-location #ladies-map, but scoped to the
+   .lm-leaflet-map class so it works for any number of ACF flexible-content
+   "location" sections on a page.
+   ========================================================================== */
+
+.lm-info--location .lm-location-grid {
+   display: grid;
+   /* grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); */
+   gap: clamp(36px, 5vw, 80px);
+   align-items: center
+}
+
+.lm-info--location .lm-location-grid>.lm-map-wrap {
+   height: 460px;
+   margin: 0;
+   border: 0;
+   min-width: 0
+}
+
+.lm-info--location .lm-map-wrap {
+   position: relative;
+   height: 460px;
+   background: #f2f4f4;
+   isolation: isolate;
+   overflow: hidden
+}
+
+.lm-info--location .lm-leaflet-map {
+   height: 100%;
+   width: 100%;
+   z-index: 1;
+   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background: #f2f4f4
+}
+
+.lm-info--location .lm-leaflet-map img {
+   max-width: none !important
+}
+
+.lm-info--location .lm-leaflet-map .leaflet-tile-pane {
+   filter: none
+}
+
+.lm-info--location .lm-leaflet-map.is-fallback .leaflet-tile-pane {
+   filter: grayscale(1) brightness(1.05)
+}
+
+/* Zoom control — kept, styled to match */
+.lm-info--location .lm-leaflet-map .leaflet-control-zoom {
+   border: 1px solid #d8d8d8;
+   border-radius: 0;
+   box-shadow: none
+}
+
+.lm-info--location .lm-leaflet-map .leaflet-control-zoom a {
+   color: #303030;
+   background: #fff;
+   border-color: #e4e4e4;
+   width: 32px;
+   height: 32px;
+   font-size: 20px;
+   line-height: 32px;
+   border-radius: 0
+}
+
+.lm-info--location .lm-leaflet-map .leaflet-control-zoom a:hover {
+   background: #f2f2f2
+}
+
+/* Attribution control — hidden as requested (backstop; JS also removes the node) */
+.lm-info--location .lm-leaflet-map .leaflet-control-attribution,
+.lm-info--location .lm-leaflet-map .maplibregl-ctrl-attrib,
+.lm-info--location .lm-leaflet-map .maplibregl-ctrl-bottom-right,
+.lm-info--location .lm-leaflet-map .maplibregl-ctrl-bottom-left,
+.lm-info--location .lm-leaflet-map .leaflet-control-container .leaflet-bottom.leaflet-right .leaflet-control-attribution {
+   display: none !important;
+   visibility: hidden !important;
+   pointer-events: none !important
+}
+
+/* Nudge the default CARTO Positron vector basemap toward the warmer, more
+   minimal reference look (less blue-grey, softer contrast). This is a
+   canvas-level color filter — it cannot remove road-shield labels baked
+   into the vector style itself; matching those exactly needs a custom
+   style.json rather than a filter. */
+.lm-info--location .lm-leaflet-map canvas {
+   filter: saturate(.55) sepia(.06) brightness(1.06) contrast(.96)
+}
+
+/* Tooltip */
+.lm-info--location .lm-leaflet-map .leaflet-tooltip {
+   font-family: inherit;
+   font-size: 14px;
+   border-radius: 0;
+   border: 1px solid #0002;
+   box-shadow: none;
+   padding: 9px 12px;
+   white-space: normal;
+   max-width: 230px
+}
+
+.lm-info--location .lm-leaflet-map .leaflet-tooltip strong {
+   font-weight: 500
+}
+
+/* Custom Clarke Group pin/badge marker */
+.lm-info--location .lm-leaflet-map .clarke-logo-marker {
+   background: transparent;
+   border: 0
+}
+
+.lm-info--location .clarke-logo-pin-content {
+   width: 30px;
+   height: 34px;
+   position: relative
+}
+
+.lm-info--location .clarke-minimal-pin {
+   position: absolute;
+   left: 4px;
+   top: 3px;
+   width: 23px;
+   height: 23px;
+   background: #050505;
+   border: 2px solid #fff;
+   border-radius: 50% 50% 50% 0;
+   transform: rotate(-45deg);
+   box-shadow: 0 2px 4px #0003;
+   z-index: 1
+}
+
+.lm-info--location .clarke-logo-leader {
+   position: absolute;
+   left: 15px;
+   top: 30px;
+   overflow: visible;
+   pointer-events: none
+}
+
+.lm-info--location .clarke-logo-leader line {
+   stroke: #343e40;
+   stroke-width: 1.2px;
+   stroke-linecap: round
+}
+
+.lm-info--location .clarke-logo-badge {
+   position: absolute;
+   left: 29px;
+   top: -44px;
+   width: 64px;
+   height: 64px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 3px;
+   text-align: center;
+   padding: 8px;
+   background: #000;
+   color: #fff;
+   border: 1px solid #fff;
+   border-radius: 50%;
+   box-shadow: 0 0 0 2px #252c2e45, 0 3px 10px #0004
+}
+
+.lm-info--location .clarke-logo-badge img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   max-width: 100% !important;
+   object-fit: contain
+}
+
+.lm-info--location .clarke-logo-fallback {
+   width: 100%;
+   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Baskerville, Georgia, serif;
+   letter-spacing: -.035em;
+   font-size: 14px;
+   line-height: 1
+}
+
+.lm-info--location .clarke-logo-badge small {
+   letter-spacing: 0;
+   text-transform: uppercase;
+   font-size: 7px;
+   line-height: 1.2
+}
+
+.lm-info--location .clarke-logo-marker:focus-visible .clarke-logo-badge {
+   outline: 2px solid #fff;
+   outline-offset: 2px;
+   box-shadow: 0 0 0 5px #252c2e
+}
+
+.lm-info--location .clarke-logo-marker:focus-visible {
+   outline: 2px solid #111;
+   outline-offset: 5px
+}
+
+/* Loading / error status */
+.lm-info--location .map-status {
+   position: absolute;
+   inset: 0;
+   display: grid;
+   place-items: center;
+   z-index: 2;
+   background: #f2f4f4;
+   color: #63686a;
+   padding: 30px;
+   text-align: center;
+   font-size: 12px;
+   letter-spacing: .06em;
+   line-height: 1.7;
+   pointer-events: none;
+   transition: opacity .3s
+}
+
+.lm-info--location .map-status[hidden] {
+   display: none
+}
+
+@media(max-width:800px) {
+   .lm-info--location .lm-location-grid {
+      grid-template-columns: 1fr;
+      gap: 40px
+   }
+
+   .lm-info--location .lm-location-grid>.lm-map-wrap,
+   .lm-info--location .lm-map-wrap {
+      height: 420px
+   }
+}
+
+@media(max-width:540px) {
+
+   .lm-info--location .lm-location-grid>.lm-map-wrap,
+   .lm-info--location .lm-map-wrap {
+      height: 360px
+   }
+}

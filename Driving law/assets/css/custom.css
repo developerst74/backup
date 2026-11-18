@@ -1,0 +1,1084 @@
+.banner-fonts {
+    color: #5fdc9a;
+    font-weight: 500;
+    font-style: italic;
+}
+.banner-editor-text {
+    color: #ffffff;
+    font-weight: 500;
+}
+span.banner-fonts-about {
+    color: #5fdc9a;
+}
+
+span.contectus-headertext{
+color:#ffff;
+}
+.highlight-color {
+    color: #5fdc9a;
+}
+
+.highlight-yellow {
+    color: #f2b428;
+}
+
+.bg-image-contecthero
+{
+  background: linear-gradient( 260deg, rgba(4, 34, 20, 0.35) 0%, rgba(5, 42, 26, 0.97) 45%, rgba(6, 48, 29, 0.42) 68%, rgba(2, 6, 9, 0.01) 100% ) !important;
+}
+span.contectus-link{
+        color: rgb(143, 240, 187);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+span.contectus-hero-dot{
+    width: 10px;
+    height: 10px;
+    border-radius:50%;
+    background: rgb(95, 220, 154);
+    box-shadow: rgba(95, 220, 154, 0.25) 0px 0px 0px 4px;
+    display: inline-block;
+	color:transparent;
+}
+
+.faq-acoradtion-style .e-n-accordion-item[open] > summary.e-n-accordion-item-title{
+    border-radius: 20px 20px 0px 0px!important;
+}
+
+.faq-acoradtion-style .e-n-accordion-item[open]{
+    overflow: hidden;
+    border-radius: 20px !important;
+}
+.cover-image-chraged{
+    background-size:cover !important;
+    background-position:center 38% !important;
+}
+.single-blog-post-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    gap: 5px;
+}
+
+.single-blog-post-info.elementor-post-info__item--type-date {}
+
+.single-blog-post-info .elementor-post-info__item--type-date {
+    margin-left: 45px;
+    color: #000;
+    font-weight: 400;
+    color: #f0f8f099 !important;
+}
+
+.single-blog-post-info .elementor-shortcode {
+    font-size: 13px;
+    font-family: 'Archivo';
+    color: #f0f8f099;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+.why-choose-us-home .banner-fonts {
+    color: #0f8a4f;
+    font-weight: 500;
+    font-style: italic;
+}
+.elementor-54 .elementor-element.elementor-element-dad1b73 .elementor-field-group .elementor-select-wrapper select{
+  color: #122019;
+}
+.elementor-select-wrapper .select-caret-down-wrapper{
+	color:#122019;
+}
+.elementor-54 .elementor-element.elementor-element-dad1b73 .elementor-field-group .elementor-select-wrapper select{
+	border-color: #122019;
+}
+/* Courts we attend page */
+.banner-fonts-Courts.we.attend {
+  color:  #5fdc9a;
+  font-weight: 700;
+}
+.prices-img-banner img.attachment-full.size-full.wp-image-1618 {
+    object-position: center 22%;
+}
+.faq-img-price img.attachment-full.size-full.wp-image-1985 {
+    object-position: center 30%;
+}
+.find-us-grid-p p {
+    margin: 0px !important;
+}
+span.banner-fonts-Tools {
+	 color: #5fdc9a;
+    font-weight: 700;
+}
+span.inner-text-p{
+	text-decoration:underline;
+	color:#0f8a4f;
+	font-weight: 700;
+}
+span.inner-text-p-ccf{
+text-decoration:underline;
+	color:#0f8a4f;
+	font-size:13px;
+}
+div#box-border-inner-1 {
+    border-width: 5px 1px 1px;
+    border-style: solid;
+    border-color: rgb(95, 191, 127) rgb(226, 221, 208) rgb(226, 221, 208);
+}
+div#box-border-inner-2 {
+    border-width: 5px 1px 1px;
+    border-style: solid;
+    border-color: rgb(242, 180, 40)  rgb(226, 221, 208) rgb(226, 221, 208);
+}
+div#box-border-inner-3 {
+    border-width: 5px 1px 1px;
+    border-style: solid;
+    border-color: rgb(168, 80, 58)  rgb(226, 221, 208) rgb(226, 221, 208);
+}
+
+.featured-post-founder .elementor-post-info__item--type-custom {
+    position: absolute;
+    bottom: -7px;
+    left: 44px;
+}
+.blog-post-upper-border .text-blog-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.loops-for-blogs .page-numbers.prev {
+    min-width: 38px;
+    padding: 12px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14.5px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 221, 208);
+    color: rgb(15, 138, 79) !important;
+}
+
+.loops-for-blogs a.page-numbers.next {
+    min-width: 38px;
+    padding: 12px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14.5px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 221, 208);
+    color: rgb(15, 138, 79) !important;
+}
+
+
+.loops-for-blogs .page-numbers  {
+    min-width: 38px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14.5px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 221, 208);
+    color: rgb(44, 58, 49);
+}
+
+/* blog-post-diffrent-upper-border */
+
+.category-disqualification .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#2C6B8A !important;
+}
+
+.category-disqualification .elementor-element-c3e068f,
+.category-disqualification .elementor-element-c3e068f a,
+.category-disqualification .elementor-element-1153ccd,
+.category-disqualification .elementor-element-1153ccd a{
+    color:#2C6B8A !important;
+}
+
+.category-drug-driving .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#6B4E9B !important;
+}
+
+.category-drug-driving .elementor-element-c3e068f,
+.category-drug-driving .elementor-element-c3e068f a,
+.category-drug-driving .elementor-element-1153ccd,
+.category-drug-driving .elementor-element-1153ccd a{
+    color:#6B4E9B !important;
+}
+
+
+.category-work-licences .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#C77D1A !important;
+}
+
+.category-work-licences .elementor-element-c3e068f,
+.category-work-licences .elementor-element-c3e068f a,
+.category-work-licences .elementor-element-1153ccd,
+.category-work-licences .elementor-element-1153ccd a{
+    color:#C77D1A !important;
+}
+
+.category-demerit-suspension .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#0F8A4F !important;
+}
+
+.category-demerit-suspension .elementor-element-c3e068f,
+.category-demerit-suspension .elementor-element-c3e068f a,
+.category-demerit-suspension .elementor-element-1153ccd,
+.category-demerit-suspension .elementor-element-1153ccd a{
+    color:#0F8A4F !important;
+}
+
+.category-dangerous-driving .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#A8503A !important;
+}
+
+.category-dangerous-driving .elementor-element-c3e068f,
+.category-dangerous-driving .elementor-element-c3e068f a,
+.category-dangerous-driving .elementor-element-1153ccd,
+.category-dangerous-driving .elementor-element-1153ccd a{
+    color:#A8503A !important;
+}
+
+.category-careless-driving .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#A8503A !important;
+}
+
+.category-careless-driving .elementor-element-c3e068f,
+.category-careless-driving .elementor-element-c3e068f a,
+.category-careless-driving .elementor-element-1153ccd,
+.category-careless-driving .elementor-element-1153ccd a{
+    color:#A8503A !important;
+}
+
+.category-unlicensed-driving .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#2C6B8A !important;
+}
+
+.category-unlicensed-driving .elementor-element-c3e068f,
+.category-unlicensed-driving .elementor-element-c3e068f a,
+.category-unlicensed-driving .elementor-element-1153ccd,
+.category-unlicensed-driving .elementor-element-1153ccd a{
+    color:#2C6B8A !important;
+}
+
+.category-evading-police .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#2C6B8A !important;
+}
+
+.category-evading-police .elementor-element-c3e068f,
+.category-evading-police .elementor-element-c3e068f a,
+.category-evading-police .elementor-element-1153ccd,
+.category-evading-police .elementor-element-1153ccd a{
+    color:#2C6B8A !important;
+}
+
+.category-going-to-court .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#3F5D54 !important;
+}
+
+.category-going-to-court .elementor-element-c3e068f,
+.category-going-to-court .elementor-element-c3e068f a,
+.category-going-to-court .elementor-element-1153ccd,
+.category-going-to-court .elementor-element-1153ccd a{
+    color:#3F5D54 !important;
+}
+
+.category-high-range-drink-driving .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#D14A3F !important;
+}
+
+.category-high-range-drink-driving .elementor-element-c3e068f,
+.category-high-range-drink-driving .elementor-element-c3e068f a,
+.category-high-range-drink-driving .elementor-element-1153ccd,
+.category-high-range-drink-driving .elementor-element-1153ccd a{
+    color:#D14A3F !important;
+}
+
+
+.category-special-hardship-orders .blog-post-upper-border .elementor-element-a56765b{
+    border-top-color:#C77D1A !important;
+}
+
+.category-special-hardship-orders .elementor-element-c3e068f,
+.category-special-hardship-orders .elementor-element-c3e068f a,
+.category-special-hardship-orders .elementor-element-1153ccd,
+.category-special-hardship-orders .elementor-element-1153ccd a{
+    color:#C77D1A !important;
+}
+.prices-img-banner .drug-drive img {
+    object-position: center 30% !important;
+}
+.tab-p-text-checkin .e-n-tab-title-text {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    justify-content: flex-start !important;
+    align-items: flex-start;
+}
+
+.tab-p-text-checkin .tab-subtitle {
+    font-weight: 400;
+    color: #f0f8f0;
+    opacity: 0.85;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+.tab-p-text-checkin .tab-subtitle{
+    color: #122019;
+    font-weight: 400;
+    opacity: .85;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+/* Active */
+.tab-p-text-checkin .e-n-tab-title[aria-selected="true"] .tab-subtitle{
+    color: #F0F8F0;
+}
+
+.diving-dipper-main .second-colum-diving-depper {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    pointer-events: none;
+    
+    transform: translateY(20px);
+
+    transition:
+        max-height .8s ease,
+        opacity .4s ease,
+        transform .5s ease,
+        visibility 0s linear .8s;
+}
+
+.diving-dipper-main.is-expanded .second-colum-diving-depper {
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: max-height .8s ease, opacity .4s ease, transform .5s ease, visibility 0s linear 0s;
+    height: auto !important;
+    max-height: max-content !important;
+}
+.drug-drving-deep-bg {
+    background-position: center 30% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.dangerous-driving-pulled {
+    background-size: cover !important;
+    background-position: center 62% !important;
+}
+.serchbar-h1-court .elementor-page-title.elementor-widget-heading {
+    display: flex !important;
+}
+/* Desktop */
+@media (min-width: 1025px) {
+    .dangerous-page .e-n-tab-title {
+        min-width: 450px;
+    }
+}
+
+/* Tablet + Mobile */
+@media (max-width: 1024px) {
+    .dangerous-page .e-n-tab-title {
+        min-width: auto !important;
+        width: auto;
+    }
+}
+@media(max-width:768px){
+	.diving-dipper-main.is-expanded .second-colum-diving-depper {
+		margin-bottom:60px;
+	}
+}
+
+/* ans drink and driving section color chnage mode css  */
+/* Normal buttons */
+.answer-btn {
+    background: transparent !important;
+}
+
+.answer-btn .elementor-button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* YES selected */
+.answer-btn.selected-yes .elementor-button,
+.answer-btn.selected-yes .elementor-button:hover,
+.answer-btn.selected-yes .elementor-button:focus,
+.answer-btn.selected-yes .elementor-button:active {
+    background-color: #079455 !important;
+    color: #ffffff !important;
+    border-color: #079455 !important;
+}
+
+/* NO selected */
+.answer-btn.selected-no .elementor-button,
+.answer-btn.selected-no .elementor-button:hover,
+.answer-btn.selected-no .elementor-button:focus,
+.answer-btn.selected-no .elementor-button:active {
+    background-color: #b45139 !important;
+    color: #ffffff !important;
+    border-color: #b45139 !important;
+}
+
+/* Result Box */
+.licence-result {
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: #fff3ef !important;
+    border: 1px solid #efb9aa !important;
+    border-radius: 12px !important;
+
+    padding: 20px 22px !important;
+    margin-top: 20px !important;
+
+    color: #8f381f !important;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.7;
+
+    transition: all 0.25s ease;
+}
+
+/* Result text */
+.licence-result,
+.licence-result p {
+    color: #8f381f !important;
+}
+
+/* Success */
+.licence-result.result-success {
+    background-color: #e9f3e9 !important;
+    border-color: #bedfc7 !important;
+    color: #0b4d2e !important;
+}
+
+.licence-result.result-success p {
+    color: #0b4d2e !important;
+}
+
+/* Warning */
+.licence-result.result-warning {
+    background-color: #fff8e7 !important;
+    border-color: #ead18b !important;
+    color: #7a2e12 !important;
+}
+
+.licence-result.result-warning p {
+    color: #7a2e12 !important;
+}
+
+/* Danger / High Range */
+.licence-result.result-danger {
+    background-color: #fff3ef !important;
+    border-color: #efb9aa !important;
+    color: #8f381f !important;
+}
+
+.licence-result.result-danger p {
+    color: #8f381f !important;
+}
+
+.licence-result {
+    display: none !important;
+}
+
+.licence-result.show-result {
+    display: block !important;
+}
+
+/* --------------for ul li start ----------------------*/
+/* =========================================
+   Character Reference / Legal Content List
+   Reusable Elementor Class
+   ========================================= */
+
+.character-reference-list ol {
+    margin: 14px 0;
+    padding-left: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.character-reference-list ol li {
+    font-family: var(--e-global-typography-e0823c1-font-family);
+    font-size: var(--e-global-typography-300542f-font-size);
+    font-weight: var(--e-global-typography-300542f-font-weight);
+    line-height: var(--e-global-typography-300542f-line-height);
+    color: rgb(60, 70, 61);
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   All Headings
+   ========================================= */
+
+.character-reference-list ol li h2 {
+    font-family: var(--e-global-typography-5566dd2-font-family);
+    font-size: var(--e-global-typography-af26760-font-size);
+    font-weight: var(--e-global-typography-af26760-font-weight);
+    line-height: var(--e-global-typography-af26760-line-height);
+    color: rgb(6, 48, 29);
+    margin: 36px 0 4px;
+    padding: 0;
+}
+
+
+/* =========================================
+   Main Description Lists
+   ========================================= */
+
+.character-reference-list ol li > ul {
+    margin: 14px 0;
+    padding-left: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* =========================================
+   Nested Lists
+   ========================================= */
+
+.character-reference-list ol li ul li > ul {
+    margin: 14px 0;
+    padding-left: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* =========================================
+   Defence 5 Paragraph
+   ========================================= */
+
+.character-reference-list ol li p {
+    font-family: var(--e-global-typography-e0823c1-font-family);
+    font-size: var(--e-global-typography-300542f-font-size);
+    font-weight: var(--e-global-typography-300542f-font-weight);
+    line-height: var(--e-global-typography-300542f-line-height);
+    color: rgb(60, 70, 61);
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   Links
+   ========================================= */
+
+.character-reference-list a {
+    color: inherit;
+}
+
+
+/* =========================================
+   Desktop - 1200px+
+   ========================================= */
+
+@media (min-width: 1200px) {
+    .character-reference-list ol {
+        padding-left: 26px;
+    }
+}
+
+
+/* =========================================
+   Laptop - 992px to 1199px
+   ========================================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .character-reference-list ol {
+        padding-left: 24px;
+    }
+
+    .character-reference-list ol li h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =========================================
+   Tablet - 768px to 991px
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .character-reference-list ol {
+        padding-left: 22px;
+    }
+
+    .character-reference-list ol li h2 {
+        font-size: 26px;
+        margin: 30px 0 4px;
+    }
+
+    .character-reference-list ol li > ul,
+    .character-reference-list ol li ul li > ul {
+        padding-left: 22px;
+    }
+}
+
+
+/* =========================================
+   Mobile - 481px to 767px
+   ========================================= */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .character-reference-list ol {
+        padding-left: 20px;
+        gap: 4px;
+    }
+
+    .character-reference-list ol li h2 {
+        font-size: 24px;
+        margin: 26px 0 4px;
+    }
+
+    .character-reference-list ol li > ul,
+    .character-reference-list ol li ul li > ul {
+        margin: 10px 0;
+        padding-left: 20px;
+        gap: 4px;
+    }
+}
+
+
+/* =========================================
+   Small Mobile - 480px and below
+   ========================================= */
+
+@media (max-width: 480px) {
+    .character-reference-list ol {
+        padding-left: 18px;
+        margin: 10px 0;
+    }
+
+    .character-reference-list ol li h2 {
+        font-size: 22px;
+        margin: 22px 0 4px;
+    }
+
+    .character-reference-list ol li > ul,
+    .character-reference-list ol li ul li > ul {
+        padding-left: 18px;
+        margin: 10px 0;
+    }
+}
+/*------------------- for ul li end ----------*/
+
+#court-result{
+    display: none;
+}
+
+
+
+/* =========================================
+   WORK LICENCE BUTTON STYLES
+   ========================================= */
+
+.wl-answer-btn{
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+/* Elementor Button Widget Support */
+.wl-answer-btn .elementor-button{
+    transition: all .25s ease;
+}
+
+/* ===========================
+   YES SELECTED (GREEN)
+   =========================== */
+
+.wl-answer-btn.wl-selected-yes .elementor-button,
+.wl-answer-btn.wl-selected-yes{
+    background: #0B4D2E !important;
+    color: #FFFFFF !important;
+    border-color: #0B4D2E !important;
+    border-radius:14px;
+}
+
+.wl-answer-btn.wl-selected-yes .elementor-button-text{
+    color: #FFFFFF !important;
+}
+
+/* ===========================
+   NO SELECTED (RED)
+   =========================== */
+
+.wl-answer-btn.wl-selected-no .elementor-button,
+.wl-answer-btn.wl-selected-no{
+    background: #C62828 !important;
+    color: #FFFFFF !important;
+    border-color: #C62828 !important;
+     border-radius:14px;
+}
+
+.wl-answer-btn.wl-selected-no .elementor-button-text{
+    color: #FFFFFF !important;
+}
+
+/* ===========================
+   HOVER (UNSELECTED ONLY)
+   =========================== */
+
+.wl-answer-btn:not(.wl-selected-yes):not(.wl-selected-no):hover .elementor-button,
+.wl-answer-btn:not(.wl-selected-yes):not(.wl-selected-no):hover{
+    background: #F5F5F5;
+}
+
+/* =========================================
+   WORK LICENCE RESULT BOX
+========================================= */
+
+.work-licence-result{
+    display:none;
+    margin-top:24px;
+    padding:24px;
+    border-radius:16px;
+    border:1px solid;
+    font-size:18px;
+    line-height:1.55;
+    font-weight:600;
+}
+
+.wl-show-result{
+    display:block !important;
+}
+
+/* GREEN SUCCESS */
+
+.wl-result-success{
+    background:#D6E0D5;
+    border-color:#A9C7A8;
+    color:#06301D;
+}
+
+/* YELLOW WARNING */
+
+.wl-result-warning{
+    background:#F5F0E4;
+    border-color:#D8BF73;
+    color:#8A5A00;
+}
+
+/* RED (future use) */
+
+.wl-result-danger{
+    background:#FFF1F1;
+    border-color:#D9534F;
+    color:#8B1E1E;
+}
+/* K qution section  */
+/* QUESTION CONTAINERS */
+
+.sh-question {
+    display: none !important;
+    width: 100%;
+}
+
+.sh-question.is-active {
+    display: flex !important;
+    flex-direction: column;
+}
+
+
+/* ANSWER */
+
+.sh-option {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+
+/* Dhruv css 4 question */
+
+
+
+/* Hide initially */
+.licence-result{
+    display:none;
+}
+
+/* Show result */
+.licence-result.show-result{
+    display:block;
+    padding:24px;
+    border-radius:16px;
+    margin-top:20px;
+    font-weight:600;
+    line-height:1.7;
+}
+
+/* Green result */
+.licence-result.result-success{
+    background:#EAF4EA;
+    border:1px solid #A9D5B2;
+    color:#06301D;
+}
+
+/* Orange result */
+.licence-result.result-danger{
+    background:#F7F1E5;
+    border:1px solid #E2C37A;
+    color:#8A5A00;
+}
+
+/* Button colors */
+.answer-btn.selected-yes{
+    background:#0B8A4F !important;
+    border-color:#0B8A4F !important;
+    color:#fff !important;
+     border-radius:99px
+}
+
+.answer-btn.selected-no{
+    background:#B65A37 !important;
+    border-color:#B65A37 !important;
+    color:#fff !important;
+     border-radius:99px
+} 
+
+
+/* Dhruv media-query */
+
+@media (max-width: 900px) {
+    .jail-main {
+        flex-direction: column !important;
+    }
+
+    .jail-main > .e-con {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+.verify-note {
+    color: #8A6200;
+    background: #FDF1CF;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.bg-overaly-custom::before {
+    background: linear-gradient(100deg, rgba(4, 34, 20, 0.95) 0%, rgba(5, 42, 26, 0.88) 40%, rgba(6, 48, 29, 0.55) 70%, rgba(6, 48, 29, 0.35) 100%);
+}
+.tab-fifteen .e-n-tabs-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.high-speed-img img {
+    object-position: center 18% !important;
+}
+
+
+/* =========================================================
+   WORK LICENCE QUESTION
+========================================================= */
+
+.work-licence-question {
+    --wl-green: #0f8a4f;
+    --wl-red: #b5533b;
+    --wl-yellow-bg: #fff8e8;
+    --wl-yellow-border: #efd18a;
+    --wl-yellow-text: #745100;
+    --wl-green-bg: #eaf6ed;
+    --wl-green-border: #b8dfc2;
+    --wl-green-text: #075c39;
+    --wl-red-bg: #fff0ec;
+    --wl-red-border: #efc2b6;
+    --wl-red-text: #8e321c;
+    --wl-button-border: #d2dcd6;
+}
+
+
+/* =========================================================
+   QUESTION ROW
+========================================================= */
+
+.work-licence-question > .e-con:not(.result-richlands) {
+    border: 1px solid #ddd8ca;
+    border-radius: 14px;
+}
+
+
+/* =========================================================
+   YES / NO BUTTON
+========================================================= */
+
+.work-licence-question
+.elementor-widget-button
+.elementor-button {
+
+    background: #ffffff;
+    color: #18352a;
+    border: 1px solid var(--wl-button-border);
+    border-radius: 50px;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.work-licence-question
+.elementor-widget-button
+.elementor-button:hover {
+
+    background: #ffffff;
+    color: #18352a;
+    border-color: var(--wl-button-border);
+
+}
+
+
+/* =========================================================
+   SELECTED YES
+========================================================= */
+
+.work-licence-question
+.elementor-widget-button.selected
+.elementor-button {
+
+    background: var(--wl-green);
+    border-color: var(--wl-green);
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   SELECTED NO
+========================================================= */
+
+.work-licence-question
+.elementor-widget-button.selected[data-answer="no"]
+.elementor-button {
+
+    background: var(--wl-red);
+    border-color: var(--wl-red);
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   RESULT CONTAINER
+========================================================= */
+
+.work-licence-question
+.result-richlands {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   COMMON RESULT
+========================================================= */
+
+.work-licence-question
+.richlands-result {
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 20px 22px;
+
+    border-radius: 12px;
+
+    margin-top: 4px;
+
+}
+
+
+/* Don't add extra spacing to paragraph */
+
+.work-licence-question
+.richlands-result p {margin: 0;font-family: var(--e-global-typography-3913f43-font-family), Sans-serif;font-size: var(--e-global-typography-3913f43-font-size);line-height: var(--e-global-typography-3913f43-line-height);font-weight: 500;}
+
+
+/* =========================================================
+   3 YES
+   ELIGIBLE - GREEN
+========================================================= */
+
+.work-licence-question
+.richlands-success {
+
+    background: var(--wl-green-bg);
+    border: 1px solid var(--wl-green-border);
+    color: var(--wl-green-text);
+
+}
+
+
+/* =========================================================
+   1 OR 2 YES
+   MAY NOT QUALIFY - YELLOW
+========================================================= */
+
+.work-licence-question
+.richlands-warning {
+
+    background: var(--wl-yellow-bg);
+    border: 1px solid var(--wl-yellow-border);
+    color: var(--wl-yellow-text);
+
+}
+
+
+/* =========================================================
+   3 NO
+   HIGH RANGE - RED
+========================================================= */
+
+.work-licence-question
+.richlands-danger {
+
+    background: var(--wl-red-bg);
+    border: 1px solid var(--wl-red-border);
+    color: var(--wl-red-text);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .work-licence-question
+    .richlands-result {
+
+        padding: 16px 18px;
+
+    }
+
+}
+
+.dl-penalty-estimator{
+    max-width: 100% !important;
+}

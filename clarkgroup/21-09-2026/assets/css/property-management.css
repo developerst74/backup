@@ -1,0 +1,554 @@
+/* ============================================================
+   Property Management page
+   Rewritten to match the supplied reference design 1:1, using the
+   class names actually output by page-property-management.php:
+   .pm-hero-content / .pm-eyebrow / .pm-hero-title / .pm-lede,
+   .pm-counter-item / .pm-counter-number / .pm-counter-label,
+   .pm-about-head / .pm-about-grid / .pm-about-image / .pm-about-copy,
+   .pm-team / .section-heading / .pm-reference-grid / .sales-contact.
+
+   The previous version of this file styled .pm-team-grid /
+   .pm-team-card (dark overlay photo cards) and a centered black
+   hero — markup the template never renders. That mismatch is why
+   the live page didn't match the reference file. This version is a
+   full replacement scoped only to this page's actual output.
+   ============================================================ */
+
+:root {
+  --pm-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Baskerville, Georgia, serif;
+  --pm-sans: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --pm-ink: #121212;
+  --pm-muted: #555;
+  --pm-muted-2: #646464;
+  --pm-line: #ddd;
+  --pm-container: 1280px;
+}
+
+.pm-container {
+
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 72px);
+}
+
+@media (max-width:650px) {
+  .pm-container {
+    padding: 0 24px
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.pm-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 760px;
+  height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  background-color: #242923;
+  background-size: cover;
+  background-position: center 56%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.pm-hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #0009, #0002), linear-gradient(0deg, #000b, transparent 75%);
+}
+
+.pm-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-left: clamp(24px, 4.6vw, 64px);
+  padding-right: clamp(24px, 4.6vw, 64px);
+  width: 100%;
+  padding: 150px clamp(24px, 5vw, 72px) 82px;
+}
+
+.pm-hero-content .pm-eyebrow {
+  color: #fff;
+  font-family: Arial;
+  font-size: 14px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+.pm-hero-title {
+  font-family: var(--pm-serif);
+  font-weight: 400;
+  max-width: 937px !important;
+  margin: 0 0 26px;
+  font-size: clamp(58px, 6.8vw, 102px);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+/* wpautop wraps the ACF lede in its own <p>, nested inside <p class="pm-lede">;
+   the browser auto-closes the outer tag, so the visible text ends up as the
+   NEXT sibling paragraph. Style both so it renders correctly either way. */
+.pm-hero-content .pm-lede,
+.pm-hero-content .pm-lede+p {
+  max-width: 660px;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ffffffe6;
+  margin: 0;
+}
+
+.pm-hero-content .pm-lede:empty {
+  display: none
+}
+
+@media (max-width:900px) {
+  .pm-hero {
+    min-height: 700px
+  }
+
+  .pm-hero-title {
+    font-size: 64px
+  }
+}
+
+@media (max-width:650px) {
+  .pm-hero {
+    height: 100svh;
+    min-height: 660px
+  }
+
+  .pm-hero-content {
+    padding: 140px 24px 60px;
+  }
+
+  .pm-hero-title {
+    font-size: 46px
+  }
+
+  .pm-hero-content .pm-lede,
+  .pm-hero-content .pm-lede+p {
+    font-size: 17px
+  }
+}
+
+@media (max-width:480px) {
+  .pm-hero {
+    height: 100svh;
+  }
+
+  .pm-hero-title {
+    font-size: clamp(40px, 10vw, 53px)
+  }
+
+  .pm-hero-content .pm-eyebrow {
+    font-size: 13px
+  }
+}
+
+/* ---------- Counters / stats strip ---------- */
+
+.pm-counters {
+  background: #f7f7f6;
+  border-bottom: 1px solid var(--pm-line);
+}
+
+
+
+.pm-counters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 52px 0;
+}
+
+.pm-counter-item {
+  padding: 8px 40px;
+  border-right: 1px solid #d1d1d1;
+}
+
+.pm-counter-item:first-child {
+  padding-left: 0
+}
+
+.pm-counter-item:last-child {
+  border-right: 0
+}
+
+.pm-counter-number {
+  font-family: var(--pm-serif);
+  display: block;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -.03em;
+  color: var(--pm-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.pm-counter-label {
+  display: block;
+  font-family: var(--pm-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: #121212;
+  margin-top: 14px;
+}
+
+@media (max-width:650px) {
+  .pm-counters-grid {
+    grid-template-columns: 1fr;
+    padding: 30px 0
+  }
+
+  .pm-counter-item {
+    padding: 23px 0;
+    border-right: 0;
+    border-bottom: 1px solid #d1d1d1;
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pm-counter-item:last-child {
+    border-bottom: 0
+  }
+
+  .pm-counter-number {
+    font-size: 49px
+  }
+
+  .pm-counter-label {
+    font-size: 12px;
+    margin-top: 0
+  }
+}
+
+@media (max-width:480px) {
+  .pm-counters-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0
+  }
+
+  .pm-counter-item {
+    border-bottom: 0;
+    display: block;
+    padding: 23px 0
+  }
+
+  .pm-counter-item:nth-child(1) {
+    border-right: 1px solid #d1d1d1;
+    padding-right: 20px
+  }
+
+  .pm-counter-item:nth-child(2) {
+    padding-left: 20px
+  }
+
+  .pm-counter-item:nth-child(3) {
+    grid-column: 1/-1;
+    text-align: center;
+    border-top: 1px solid #d1d1d1;
+    margin-top: 12px;
+    padding-top: 20px
+  }
+}
+
+/* ---------- About ---------- */
+
+.pm-about {
+  padding: 100px 0
+}
+
+.pm-about-head {
+  max-width: 930px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.pm-about-head .pm-eyebrow {
+  display: block;
+  font-family: var(--pm-sans);
+  font-size: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--pm-muted-2);
+  font-family: Arial;
+  margin: 0 0 18px;
+}
+
+.pm-about-head h2 {
+  font-family: var(--pm-serif);
+  font-weight: 400;
+  color: var(--pm-ink);
+  margin: 0 0 26px;
+  font-size: clamp(42px, 4.8vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+
+.pm-about-head p {
+  font-family: Arial;
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--pm-muted);
+  margin: 0;
+}
+
+.pm-about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 7vw;
+}
+
+.pm-about-image img {
+  width: 100%;
+  display: block
+}
+
+.pm-about-copy p {
+  font-family: var(--pm-sans);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--pm-muted);
+  margin: 0 0 24px;
+}
+
+.pm-about-copy p:first-child {
+  color: #171717;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.pm-about-copy p:last-of-type {
+  margin-bottom: 0
+}
+
+.pm-about-copy .pm-brand-logo {
+  display: block;
+  width: min(100%, 380px);
+  height: auto;
+  object-fit: contain;
+  margin: 32px 0 0;
+}
+
+@media (max-width:900px) {
+  .pm-about {
+    padding: 72px 0
+  }
+
+  .pm-about-grid {
+    grid-template-columns: 1fr;
+    gap: 34px
+  }
+
+  .pm-about-head {
+    text-align: left;
+    margin-bottom: 38px
+  }
+
+  .pm-about-head p {
+    font-size: 17px
+  }
+
+  .pm-about-copy p:first-child {
+    font-size: 19px
+  }
+}
+
+/* ---------- Team ---------- */
+
+.pm-team {
+  background: #f3f3f0;
+  padding: 86px 0 100px;
+}
+
+.pm-team>.pm-container>.pm-eyebrow {
+  display: block;
+  text-align: left;
+  font-family: var(--pm-sans);
+  font-size: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--pm-muted-2);
+  margin: 0 0 18px;
+}
+
+.section-heading.section-heading--center {
+  text-align: left;
+  margin-bottom: 42px
+}
+
+.section-heading.section-heading--center h2 {
+  font-family: var(--pm-serif);
+  font-weight: 400;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  color: var(--pm-ink);
+  margin: 0;
+}
+
+.pm-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px 28px;
+  align-items: start;
+}
+
+.pm-reference-grid article {
+  display: flex;
+  flex-direction: column;
+  min-width: 0
+}
+
+.pm-reference-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center top;
+  background: #e9e9e7;
+}
+
+.pm-reference-grid h3 {
+  font-family: var(--pm-serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  color: var(--pm-ink);
+  margin: 22px 0 8px;
+}
+
+.pm-reference-grid p {
+  font-family: var(--pm-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: #666;
+  max-width: 330px;
+  margin: 0;
+  font-family: Arial;
+}
+
+.pm-reference-grid .sales-contact {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid #d3d3d3;
+  list-style: none;
+}
+
+.pm-reference-grid .sales-contact a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--pm-ink);
+  overflow-wrap: anywhere;
+  transition: border-color .25s ease;
+  border: 0px !important;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+.pm-reference-grid .sales-contact a:hover {
+  border-color: currentColor
+}
+
+@media (max-width:1100px) {
+  .pm-reference-grid {
+    column-gap: 22px
+  }
+
+  .pm-reference-grid h3 {
+    font-size: 26px
+  }
+}
+
+@media (max-width:800px) {
+  .pm-team {
+    padding: 64px 0
+  }
+
+  .pm-reference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media (max-width:540px) {
+  .pm-reference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 18px
+  }
+
+  .pm-reference-grid h3 {
+    font-size: 22px;
+    margin-top: 17px
+  }
+
+  .pm-reference-grid .sales-contact {
+    margin-top: 14px;
+    padding-top: 12px
+  }
+}
+
+@media (max-width:360px) {
+  .pm-reference-grid {
+    grid-template-columns: 1fr
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .pm-reference-grid .sales-contact a {
+    transition: none
+  }
+}
+
+.pm-about-grid .pm-about-copy .gp-armed.gp-in {
+  font-family: Arial;
+}
+
+.page-template-page-property-management .section-heading--center {
+  align-items: center;
+  max-width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+}
+
+.page-template-page-property-management .contact-section .contact-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.page-template-page-property-management .footer-cta-section.cg2-contact-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: #0007;
+}
+
+.page-template-page-property-management  .footer-cta-section.cg2-contact-section .footer-cta-content__subtitle {
+    margin: -24px 0 30px;
+    color: #ffffffb0;
+    font-size: 16px;
+    font-family: Arial;
+}

@@ -1,0 +1,727 @@
+/**
+ * ALM Aotearoa — Page-specific sections
+ * ---------------------------------------------------------------
+ * Styles for the ALM Aotearoa page only.
+ * Builds on top of homepage-new.css shared classes (outline-link,
+ * arrow-link-inner, var(--paper), var(--serif), etc.).
+ *
+ * Loaded conditionally on is_page_template('page-templates/almaotearoa.php')
+ * via includes/assets-enqueue.php.
+ */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  margin: 0 0 25px;
+  color: #777;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.section-pad {
+  padding: clamp(88px, 9vw, 140px) clamp(24px, 4.6vw, 64px);
+}
+
+@media (max-width: 540px) {
+  .section-pad {
+    padding: 65px 20px;
+  }
+}
+
+/* ==========================================================
+   Hero base (premium-hero variant) — shared by Premium/ALM
+   ========================================================== */
+.hero.premium-hero {
+  position: relative;
+  overflow: hidden;
+  height: 100svh;
+  min-height: 760px;
+  background: #050505;
+  color: #fff;
+}
+
+.hero.premium-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, #000000b8 0%, #00000075 32%, #0000001f 64%, #0003 100%),
+    linear-gradient(#00000014 0%, #0000 62%, #00000085 100%);
+}
+
+.hero.premium-hero .hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  margin: 0;
+  background: #7f776d;
+}
+
+.hero.premium-hero .hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero.premium-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 110px clamp(24px, 4.6vw, 64px) 70px;
+  text-align: left;
+  gap: 0;
+}
+
+.hero.premium-hero h1 {
+  font-family: var(--serif);
+  letter-spacing: -.047em;
+  text-shadow: 0 2px 30px #00000038;
+  text-wrap: balance;
+  max-width: 940px;
+  margin: 0;
+  font-weight: 400;
+  color: #fff;
+}
+
+.premium-hero .hero-content {
+  max-width: 1100px;
+  padding-top: 130px;
+  padding-bottom: 100px;
+}
+
+.premium-hero .hero-media img {
+  object-position: center center;
+}
+
+.premium-hero .eyebrow {
+  margin-bottom: 28px;
+  color: #ffffffad;
+  letter-spacing: .18em;
+  font-size: 9px;
+  animation: .8s 50ms both rise !important;
+  font-family: Arial;
+  font-weight: 600
+}
+
+.premium-hero h1 {
+  font-size: clamp(58px, 6.8vw, 102px);
+  line-height: .98;
+  letter-spacing: -.05em;
+}
+
+.premium-hero .hero-description {
+  position: relative;
+  max-width: 580px;
+  margin: 28px 0 0;
+  color: #ffffffd6;
+  font-size: 19px;
+  line-height: 1.65;
+  animation: .9s .2s both rise;
+}
+
+.premium-hero .actions {
+  animation: .9s .32s both rise;
+}
+
+.premium-hero .actions .outline-link {
+  min-width: 210px;
+}
+
+/* ==========================================================
+   ALM Aotearoa specific overrides
+   ========================================================== */
+
+.alm-hero:after {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .78), rgba(0, 0, 0, .54) 48%, rgba(0, 0, 0, .16)),
+    linear-gradient(0deg, rgba(0, 0, 0, .4), transparent 55%);
+}
+
+.alm-hero .hero-content {
+  max-width: 950px;
+  padding-bottom: 80px;
+}
+
+.alm-hero .eyebrow {
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+.alm-hero-copy {
+  max-width: 655px;
+  margin-top: 30px;
+  animation: .9s .2s both rise;
+}
+
+.alm-hero-copy p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ffffffe0;
+  margin: 0 0 16px;
+  font-family: Arial;
+}
+
+.alm-hero-action {
+  margin-top: 18px;
+  animation: .9s .32s both rise;
+}
+
+.alm-hero-action .outline-link {
+  min-width: 210px;
+}
+
+/* ==========================================================
+   The Story section
+   ========================================================== */
+
+.alm-story-section {
+  background: var(--paper);
+  scroll-margin-top: 76px;
+}
+
+.alm-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(35px, 7vw, 110px);
+  align-items: start;
+  margin-bottom: 56px;
+}
+
+.alm-section-heading h2,
+.alm-feature-copy h2 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 4.8vw, 72px);
+  line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: -.045em;
+  margin: 0;
+
+}
+
+.alm-section-heading p,
+.alm-story-text p,
+.alm-feature-copy>p,
+.alm-pillars p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #626262;
+  margin: 0;
+  font-family: Arial;
+}
+
+.alm-story-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-bottom: 48px;
+  align-items: start;
+  min-width: 0;
+}
+
+.alm-story-images figure {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 1.4;
+}
+
+.alm-story-images img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alm-story-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(35px, 7vw, 110px);
+}
+
+.alm-section-heading>*,
+.alm-story-text>*,
+.alm-feature>*,
+.alm-pillars>* {
+  min-width: 0;
+}
+
+/* ==========================================================
+   Feature rows (Grace, Leadership, Vision variants)
+   ========================================================== */
+
+.alm-feature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.alm-feature-image {
+  position: relative;
+  margin: 0;
+  min-height: 660px;
+  overflow: hidden;
+}
+
+.alm-feature-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alm-feature-copy {
+  align-self: center;
+  padding: clamp(60px, 7vw, 110px);
+}
+
+.alm-feature-copy h2 {
+  margin-bottom: 32px;
+}
+
+.alm-feature-copy>p+p {
+  margin-top: 20px;
+}
+
+.alm-feature-copy .outline-link {
+  margin-top: 34px;
+}
+
+.alm-feature-copy>p.eyebrow {
+  font-size: 10px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* Dark variant — About Grace Foundation */
+.alm-feature-dark {
+  background: #0a0a0a;
+  color: white;
+}
+
+.alm-feature-dark .alm-feature-copy>p {
+  color: #ffffffad;
+}
+
+.alm-feature-dark .alm-feature-image img {
+  object-position: 48% center;
+}
+
+.alm-feature-dark .alm-feature-image:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .1) 45%, #000 100%);
+}
+
+/* Reverse variant — People & Leadership */
+.alm-feature-reverse {
+  background: #efefec;
+}
+
+.alm-feature-reverse .alm-feature-image {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 610px;
+}
+
+.alm-feature-reverse .alm-feature-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.alm-feature-reverse .alm-feature-image img {
+  object-position: 52% center;
+}
+
+/* ==========================================================
+   What ALM Does (Purpose + Pillars)
+   ========================================================== */
+
+.alm-purpose {
+  background: var(--paper);
+}
+
+.alm-purpose-image {
+  position: relative;
+  height: clamp(320px, 43vw, 640px);
+  margin: 0;
+  overflow: hidden;
+}
+
+.alm-purpose-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  width: 100%;
+}
+
+.alm-purpose-image:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .12) 10%, rgba(0, 0, 0, .32) 48%, rgba(0, 0, 0, .78) 100%);
+}
+
+.alm-pillars {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  width: calc(100% - 32px);
+  margin: -60px auto 0;
+  background: #fff;
+}
+
+.alm-pillars article {
+  border-right: 1px solid #0000001a;
+  padding: 34px 28px;
+}
+
+.alm-pillars article:last-child {
+  border-right: 0;
+}
+
+.alm-pillars h3 {
+  font: 400 clamp(26px, 2.5vw, 36px) / 1.14 var(--serif);
+  letter-spacing: -.035em;
+  margin: 0 0 20px;
+}
+
+.alm-pillars p {
+  font-size: 15px;
+}
+
+/* ==========================================================
+   Future Vision variant
+   ========================================================== */
+
+.alm-vision {
+  background: #eeede9;
+}
+
+.alm-vision .alm-feature-image {
+  min-height: 700px;
+  background: white;
+}
+
+.alm-vision .alm-feature-image img {
+  object-fit: contain;
+}
+
+.alm-vision .alm-feature-copy h2 {
+  font-size: clamp(34px, 3.4vw, 52px);
+  line-height: 1.1;
+}
+
+/* ==========================================================
+   Responsive: Tablet (≤1050px)
+   ========================================================== */
+
+@media (width <=1050px) {
+  .premium-hero h1 {
+    font-size: 74px;
+  }
+
+  .alm-feature-copy {
+    padding: 64px 36px;
+  }
+
+  .alm-feature-image {
+    min-height: 640px;
+  }
+
+  .alm-hero .hero-content {
+    max-width: 820px;
+  }
+
+  .alm-pillars article {
+    padding: 28px 20px;
+  }
+}
+
+/* ==========================================================
+   Responsive: Mobile (≤800px)
+   ========================================================== */
+
+@media (width <=800px) {
+  .premium-hero .hero-content {
+    justify-content: flex-end;
+    padding: 120px 24px 85px;
+  }
+
+  .premium-hero h1 {
+    font-size: 64px;
+  }
+
+  .premium-hero .hero-media img {
+    object-position: 45% center;
+  }
+
+  .premium-hero .hero-description {
+    font-size: 18px;
+  }
+
+  .alm-hero {
+    height: auto;
+    min-height: 800px;
+  }
+
+  .alm-hero .hero-content {
+    padding: 180px 24px 80px;
+    justify-content: flex-end;
+  }
+
+  .alm-hero .hero-media img {
+    object-position: 62% center;
+  }
+
+  .alm-section-heading,
+  .alm-story-text {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .alm-section-heading {
+    margin-bottom: 36px;
+  }
+
+  .alm-story-images {
+    gap: 18px;
+    margin-bottom: 34px;
+  }
+
+  .alm-feature {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alm-feature-image,
+  .alm-feature-reverse .alm-feature-image,
+  .alm-vision .alm-feature-image {
+    min-height: 0;
+    height: clamp(360px, 76vw, 600px);
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .alm-feature-reverse .alm-feature-copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .alm-feature-copy {
+    padding: 64px 24px !important;
+    order: 1;
+  }
+
+  .alm-pillars {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 24px);
+    margin-top: -40px;
+  }
+
+  .alm-pillars article {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    column-gap: 16px;
+    border-right: 0;
+    border-bottom: 1px solid #0000001a;
+  }
+
+  .alm-pillars article:last-child {
+    border-bottom: 0;
+  }
+
+  .alm-pillar-number {
+    grid-column: 1;
+    grid-row: 1/3;
+    margin-top: 4px;
+  }
+
+  .alm-pillars h3,
+  .alm-pillars p {
+    grid-column: 2;
+  }
+}
+
+/* ==========================================================
+   Responsive: Small mobile (≤540px)
+   ========================================================== */
+
+@media (width <=540px) {
+  .premium-hero .hero-content {
+    padding: 110px 20px 80px;
+  }
+
+  .premium-hero h1 {
+    font-size: 53px;
+  }
+
+  .premium-hero .hero-description {
+    margin-top: 22px;
+    font-size: 17px;
+  }
+
+  .premium-hero .actions,
+  .premium-hero .actions .outline-link {
+    width: 100%;
+  }
+
+  .alm-hero {
+    min-height: 760px;
+  }
+
+  .alm-hero .hero-content {
+    padding: 148px 20px 64px;
+  }
+
+  .alm-hero .eyebrow {
+    font-size: 9px;
+    max-width: 290px;
+    margin-bottom: 24px;
+  }
+
+  .alm-hero h1 {
+    font-size: 53px;
+  }
+
+  .alm-hero-copy {
+    margin-top: 26px;
+  }
+
+  .alm-hero-copy p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .alm-hero-action {
+    width: 100%;
+  }
+
+  .alm-hero-action .outline-link {
+    width: 100%;
+  }
+
+  .alm-story-images {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .alm-story-images figure {
+    aspect-ratio: 1.4;
+  }
+
+  .alm-section-heading h2,
+  .alm-feature-copy h2 {
+    font-size: 43px;
+  }
+
+  .alm-pillars {
+    width: calc(100% - 16px);
+    margin-top: -30px;
+  }
+
+  .alm-pillars article {
+    padding: 24px 20px;
+  }
+
+  .alm-feature-copy {
+    padding: 56px 20px;
+  }
+
+  .alm-feature-copy .outline-link {
+    width: 100%;
+  }
+
+  .alm-purpose-image {
+    height: 310px;
+  }
+
+  .alm-vision .alm-feature-copy h2 {
+    font-size: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .alm-hero-copy,
+  .alm-hero-action,
+  .premium-hero .eyebrow,
+  .premium-hero .hero-description,
+  .premium-hero .actions {
+    animation: none;
+  }
+}
+
+.alm-pillar-number {
+  color: #777;
+  font-size: 11px;
+  letter-spacing: .12em;
+  display: block;
+  margin-bottom: 28px;
+  font-family: Arial;
+}
+
+.page-template-almaotearoa .alm-vision {
+  padding: 0px !important;
+  background: #eeede9 !important;
+}
+
+.alm-feature-image {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.alm-feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.alm-feature-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0) 35%,
+      /* middle: no overlay */
+      rgba(0, 0, 0, 0.35) 70%,
+      /* transition */
+      rgba(0, 0, 0, 0.75) 100%
+      /* edges: darkest */
+    );
+}

@@ -1,0 +1,320 @@
+/* ═══════════════════════════════════════════
+   Yes/No Checker Widget
+   ═══════════════════════════════════════════ */
+
+* { box-sizing: border-box; }
+
+.ync-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 36px;
+    font-family: inherit;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    max-width: 100%;
+}
+
+.ync-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+    color: #1a1a1a;
+}
+
+.ync-desc {
+    font-size: 0.92em;
+    color: #555;
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+.ync-desc p {
+    margin: 0 0 8px 0;
+}
+
+.ync-desc p:last-child {
+    margin-bottom: 0;
+}
+
+.ync-desc a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* ── NORMAL: Question rows ─────────────────── */
+
+.ync-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.ync-question-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #f5f3ee;
+    border-radius: 10px;
+    padding: 14px 20px;
+    border: 1px solid #ece9e2;
+}
+
+.ync-question-text {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #1a1a1a;
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Yes / No buttons */
+.ync-btn-group {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.ync-btn {
+    padding: 6px 20px;
+    border-radius: 50px;
+    border: 1.5px solid #c8c5be;
+    background: transparent;
+    color: #444;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    outline: none;
+    min-width: 54px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.ync-btn:hover:not(.active-yes):not(.active-no) {
+    /* controlled via inline style per widget */
+}
+
+/* Active states injected inline per widget */
+
+/* Result box */
+.ync-result {
+    margin-top: 12px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    animation: yncFadeIn 0.28s ease;
+    border: 1.5px solid transparent;
+}
+
+.ync-result.result-all-yes { /* bg/border/text controlled via inline style */ }
+.ync-result.result-mixed   { /* bg/border/text controlled via inline style */ }
+.ync-result.result-all-no  { /* bg/border/text controlled via inline style */ }
+.ync-result.result-neutral { /* bg/border/text controlled via inline style */ }
+
+.ync-result-text {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.65;
+    font-weight: 500;
+}
+.ync-result.result-all-yes .ync-result-text { /* controlled via inline style */ }
+.ync-result.result-mixed   .ync-result-text { /* controlled via inline style */ }
+.ync-result.result-all-no  .ync-result-text { /* controlled via inline style */ }
+.ync-result.result-neutral .ync-result-text { /* controlled via inline style */ }
+
+.ync-footer {
+    margin: 16px 0 0 0;
+    font-size: 0.82em;
+    color: #777;
+    line-height: 1.5;
+}
+
+.ync-footer p {
+    margin: 0;
+}
+
+.ync-footer a {
+    color: #2d6a4f;
+    text-decoration: underline;
+}
+
+.ync-footer a:hover {
+    opacity: 0.8;
+}
+
+/* ── TABBED LAYOUT ─────────────────────────── */
+
+.ync-tabs-wrapper {
+    width: 100%;
+}
+
+/* Tab cards grid — 2 columns like screenshot */
+.ync-tab-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+/* Each tab = card */
+.ync-tab-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: #f2f0eb;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    outline: none;
+    text-align: left;
+    line-height: 1.3;
+    width: 100%;
+    white-space: normal;
+}
+
+.ync-tab-btn:hover:not(.ync-tab-active) {
+    /* controlled via inline style per widget */
+}
+
+.ync-tab-title {
+    font-size: 0.92em;
+    font-weight: 700;
+    color: inherit;
+}
+
+.ync-tab-subtitle {
+    font-size: 0.8em;
+    font-weight: 400;
+    color: inherit;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+/* Active tab — dark green like screenshot */
+.ync-tab-btn.ync-tab-active {
+    background: #1e4d35;
+    border-color: #1e4d35;
+    color: #ffffff;
+}
+
+.ync-tab-btn.ync-tab-active .ync-tab-subtitle {
+    opacity: 0.75;
+}
+
+/* Pre-selection text — shown below tab buttons before any tab is clicked */
+.ync-preselect-text {
+    margin: 16px 0 0 0;
+    font-size: 0.88em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.ync-preselect-text p { margin: 0 0 6px 0; }
+.ync-preselect-text p:last-child { margin-bottom: 0; }
+.ync-preselect-text a { color: #2d6a4f; text-decoration: underline; }
+.ync-preselect-text a:hover { color: #1a5c35; }
+
+/* Tab description — shown inside tab button below subtitle */
+.ync-tab-desc {
+    font-size: 0.78em;
+    font-weight: 400;
+    color: inherit;
+    opacity: 0.8;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.ync-tab-desc p { margin: 0; }
+.ync-tab-desc a { color: inherit; text-decoration: underline; }
+
+/* Tab footer — shown inside each panel below result */
+.ync-tab-footer {
+    margin: 16px 0 0 0;
+    font-size: 0.82em;
+    color: #777;
+    line-height: 1.5;
+}
+
+.ync-tab-footer p { margin: 0; }
+.ync-tab-footer a { color: #2d6a4f; text-decoration: underline; }
+.ync-tab-footer a:hover { color: #1a5c35; }
+
+/* Divider between tabs and questions — hidden until a tab is selected */
+.ync-tab-panels {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1.5px solid #e5e3de;
+}
+
+.ync-tab-panels[style*="display:none"],
+.ync-tab-panels[style*="display: none"] {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Panel hidden by default */
+.ync-tab-panel {
+    display: none;
+    animation: yncFadeIn 0.22s ease;
+}
+
+.ync-tab-panel-active {
+    display: block;
+}
+
+/* Section label inside tab */
+.ync-section-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #2d6a4f;
+    margin: 0 0 12px 0;
+    padding: 14px 18px;
+    border: 1px solid #c8dfd0;
+    border-radius: 10px;
+    background: #f5faf7;
+    line-height: 1.4;
+    display: block;
+}
+
+.ync-section-label + .ync-questions {
+    margin-top: 0;
+}
+
+/* ── ANIMATIONS ────────────────────────────── */
+
+@keyframes yncFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ────────────────────────────── */
+
+@media (max-width: 600px) {
+    .ync-card {
+        padding: 22px 16px;
+    }
+
+    .ync-tab-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .ync-question-row {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 10px;
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .ync-btn-group {
+        align-self: flex-end;
+    }
+}

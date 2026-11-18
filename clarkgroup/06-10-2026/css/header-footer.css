@@ -1,0 +1,757 @@
+/* =========================================================
+   HEADER — REFERENCE CSS MAPPED TO WORDPRESS CLASSES
+   No HTML/PHP changes required.
+   ========================================================= */
+
+body .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 76px;
+    padding: 0 clamp(24px, 4.6vw, 64px);
+    color: #fff;
+    z-index: 30;
+    background: transparent;
+    transition: background .32s, box-shadow .32s, height .32s;
+}
+
+/* Reference .site-header grid applied to the existing WP wrapper */
+.header-container {
+    width: 100%;
+    max-width: var(--container-width);
+    height: 76px;
+    min-height: 76px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0;
+}
+
+/* Reference .site-header.is-scrolled -> existing WP .is-fixed */
+header.site-header.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #000000f5;
+    box-shadow: 0 1px #ffffff14;
+    animation: none;
+}
+
+@keyframes headerSlideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Reference .brand -> existing WP .site-logo */
+.site-logo {
+    justify-self: start;
+    width: clamp(122px, 10vw, 142px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    color: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.site-header .site-logo img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Keep existing SVG/icon logo support */
+.logo-icon {
+    transition: transform .3s ease;
+}
+
+.site-logo:hover .logo-icon {
+    transform: none;
+}
+
+/* Reference .menu-button -> existing WP .nav-toggle */
+.nav-toggle {
+    flex-direction: column;
+    justify-content: center;
+    justify-self: end;
+    align-items: center;
+    gap: 4px;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    color: #fff !important;
+    border: 1px solid #ffffff61 !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    transition: background .3s, border-color .3s, transform .35s cubic-bezier(.2, .8, .2, 1) !important;
+    display: inline-flex !important;
+    background: transparent;
+}
+
+.nav-toggle:hover {
+    transform: rotate(8deg);
+    background: #fff !important;
+    border-color: #fff !important;
+}
+
+.nav-toggle span {
+    background: currentColor;
+    width: 17px;
+    height: 1px;
+    transition: transform .35s, width .35s;
+    display: block;
+}
+
+.nav-toggle span:nth-child(2) {
+    width: 12px;
+}
+
+.nav-toggle:hover span {
+    background: #000;
+}
+
+/* Reference .menu-button.is-open -> WP header .nav-open state */
+.site-header.nav-open .nav-toggle span:first-child {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.site-header.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+    transform: translate(8px);
+}
+
+.site-header.nav-open .nav-toggle span:last-child {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+/* =========================================================
+   OFF-CANVAS NAVIGATION
+   Reference .handoff-menu* -> existing WP .main-nav* classes
+   ========================================================= */
+
+html {
+    scrollbar-gutter: stable;
+}
+
+html.navigation-open {
+    overflow: hidden;
+}
+
+/* Reference .handoff-menu-backdrop */
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 44;
+    background: #05050566;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .35s, visibility .35s;
+}
+
+/* Reference .handoff-menu-backdrop.is-open -> WP .nav-open state */
+.site-header.nav-open~.nav-backdrop,
+.site-header.nav-open+.nav-backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Reference .handoff-menu -> existing WP .main-nav */
+.main-nav {
+    position: fixed;
+    inset: 14px 14px 14px auto;
+    z-index: 45;
+    width: min(480px, calc(100vw - 28px));
+    height: auto;
+    max-height: calc(100dvh - 28px);
+    display: flex;
+    flex-direction: column;
+    padding: 28px 40px;
+    color: #f8f8f5;
+    background: linear-gradient(150deg, #191c1b, #090b0a 65%);
+    border: 1px solid #ffffff21;
+    box-shadow: -20px 10px 70px #0004;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(calc(100% + 20px));
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .48s cubic-bezier(.22, .8, .22, 1), opacity .35s, visibility .48s;
+}
+
+/* Reference .handoff-menu.is-open -> existing WP .site-header.nav-open */
+.site-header.nav-open+.nav-backdrop+.main-nav,
+.site-header.nav-open~.main-nav {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Reference .handoff-menu-top -> WP .main-nav-top */
+.main-nav-top {
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+/* Reference .handoff-menu-close -> WP .nav-close */
+.nav-close {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    height: 44px;
+    position: static;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav-close:hover {
+    opacity: 1;
+}
+
+/* Reference .handoff-menu-close-icon -> WP .nav-close-icon */
+.nav-close-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ffffff40;
+    border-radius: 50%;
+    transition: background .2s, color .2s, transform .3s;
+}
+
+.nav-close:hover .nav-close-icon {
+    background: #f6f6f1;
+    color: #080a09;
+    transform: rotate(90deg);
+}
+
+/* Reference .handoff-menu nav -> WP .main-nav nav */
+.main-nav nav {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: auto 0;
+    padding: 42px 0 24px;
+}
+
+/* Existing WP .nav-list */
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-list li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Reference .handoff-menu nav a -> WP .nav-list a */
+.nav-list a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 0;
+    border-bottom: 1px solid #ffffff20;
+    padding: 24px 0;
+    color: #f8f8f5;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: clamp(25px, 2.5vw, 32px);
+    font-weight: 400;
+    letter-spacing: -.045em;
+    line-height: 1.15;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .35s, transform .35s, color .2s, border-color .2s;
+}
+
+/* Reference .handoff-menu.is-open nav a */
+.site-header.nav-open .nav-list a {
+    opacity: 1;
+    transform: none;
+}
+
+/* Keep the existing WP pseudo-element arrow, styled like the reference arrow */
+.nav-list a::after {
+    content: "";
+    flex-shrink: 0;
+    width: 21px;
+    height: 21px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E") no-repeat center / contain;
+    opacity: .38;
+    transition: opacity .25s, transform .25s;
+}
+
+.nav-list a:hover {
+    border-color: #ffffff75;
+    color: #fff;
+    opacity: 1;
+}
+
+.nav-list a:hover::after {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+/* Reference last nav link = WP last nav link */
+.nav-list a:last-child {
+    font-family: var(--sans);
+    letter-spacing: -.045em;
+    opacity: 1;
+    border: 0;
+    border-bottom: 1px solid #ffffff20;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0;
+    font-size: clamp(25px, 2.5vw, 32px);
+    font-weight: 400;
+    line-height: 1.15;
+    transition: opacity .35s, transform .35s, color .2s, border-color .2s;
+    display: flex;
+    transform: translateY(12px);
+}
+
+.nav-list a:last-child:hover {
+    color: #fff;
+    border-color: #ffffff75;
+}
+
+a.header-cta {
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border: 1px solid #ffffff50;
+    margin-top: 38px;
+    padding: 19px 21px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    transition: opacity .35s, transform .35s, background .2s, color .2s;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+a.header-cta:hover {
+    color: #090b0a;
+    background: #f6f6f1;
+}
+
+.nav-list a:last-child::after {
+    width: 17px;
+    height: 17px;
+    opacity: 1;
+}
+
+.nav-list a:focus-visible,
+.nav-close:focus-visible {
+    outline: 2px solid #e7eae6;
+    outline-offset: 7px;
+}
+
+/* =========================================================
+   FOOTER CTA
+   Reference .contact-section -> existing .footer-cta-section
+   ========================================================= */
+
+.footer-cta-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 540px;
+    padding: 90px 24px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+}
+
+.footer-cta-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgb(0 0 0 / 41%) 64.29%, #000 100%), linear-gradient(0deg, rgb(0 0 0 / 51%), rgb(0 0 0 / 20%));
+}
+
+.footer-cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0;
+}
+
+.footer-cta-content h2 {
+    font-family: var(--font-display);
+    letter-spacing: -.05em;
+    margin: 0 0 42px;
+    color: #fff;
+    font-size: clamp(38px, 5.25vw, 74px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.footer-cta-content .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 0;
+    min-height: 45px;
+    height: 45px;
+    padding: 0 24px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #ffffff85;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transition: background .25s, color .25s, border-color .25s;
+}
+
+.footer-cta-content .button:hover {
+    color: #000;
+    background: #fff;
+    border-color: #fff;
+    transform: none;
+}
+
+.footer-cta-content .button span {
+    font-size: inherit;
+    line-height: 1;
+    transition: transform .25s;
+}
+
+.footer-cta-content .button:hover span {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   CTA / Contact Section — approved reference design overlay
+   Extends .footer-cta-section above. Reuses the existing
+   .outline-link / .arrow-link-inner (homepage-new.css) and the
+   base .eyebrow style (dev1custom.css) — this block only adds
+   what's unique to the new <img>-based contact-section markup.
+   ========================================================= */
+
+.contact-section .contact-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* .contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgb(0 0 0 / 41%) 64.29%, #000 100%), linear-gradient(0deg, rgb(0 0 0 / 51%), rgb(0 0 0 / 20%));
+} */
+
+.single-projects .contact-section .eyebrow {
+    display: block;
+    margin: 0 0 16px;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .7);
+}
+
+.contact-section .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.contact-section .contact-address {
+    margin: 22px 0 0;
+    font-family: Arial;
+    font-size: 13px;
+    color: rgba(255, 255, 255, .75);
+}
+
+/* =========================================================
+   MAIN FOOTER
+   Reference classes are already the same, so only values are
+   changed to the reference CSS.
+   ========================================================= */
+
+.site-footer {
+    color: #fff;
+    background: #000;
+    border-top: 1px solid #ffffff1f;
+    padding: 72px clamp(24px, 5vw, 72px) 28px;
+}
+
+.footer-main {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 55px;
+    display: grid;
+}
+
+.footer-main>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-main p {
+    color: #ffffff6b;
+    max-width: 285px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.footer-main div>span {
+    color: #fff6;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-size: 8px;
+}
+
+/* WP uses h4 for footer headings instead of the reference span */
+.footer-column h4 {
+    color: #fff6;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.footer-main div>a:not(.brand),
+.footer-main div>a:not(.footer-logo) {
+    /* opacity: .76; */
+    font-size: 11px;
+}
+
+.footer-main div>a:hover {
+    opacity: 1;
+}
+
+.footer-column ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-column li {
+    margin: 0 0 0;
+    padding: 0;
+}
+
+.footer-column a {
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.65;
+    font-weight: 400;
+    opacity: .76;
+    transition: opacity .25s;
+}
+
+.footer-column a:hover {
+    color: #fff;
+    opacity: 1;
+    transform: none;
+}
+
+/* Reference .brand inside footer -> WP .footer-logo */
+.footer-logo {
+    width: clamp(122px, 10vw, 142px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-footer .footer-logo-image {
+    width: 100%;
+    height: auto;
+    max-width: none;
+}
+
+.footer-description {
+    color: #ffffff6b;
+    max-width: 285px;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+/* Reference footer bottom */
+.footer-bottom {
+    max-width: var(--container-width);
+    margin: 68px auto 0;
+    padding-top: 22px;
+    color: #ffffff5c;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-top: 1px solid #ffffff1f;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 16px;
+    display: grid;
+    align-items: center;
+}
+
+.footer-bottom span,
+.footer-bottom a {
+    margin: 0;
+    color: #ffffff5c;
+    font-size: 8px;
+    font-family: var(--font-body);
+}
+
+.footer-bottom a.footer-privacy {
+    text-decoration: none;
+    transition: color .25s;
+}
+
+.footer-bottom a.footer-privacy:hover {
+    color: #fff;
+}
+
+/* =========================================================
+   RESPONSIVE — same breakpoints/values as reference
+   ========================================================= */
+
+@media (max-width: 800px) {
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-bottom {
+        grid-template-columns: 1fr auto;
+        gap: 15px;
+    }
+
+    .footer-bottom span:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 540px) {
+    body .site-header {
+        height: 72px;
+        padding: 0 20px;
+    }
+
+    .header-container {
+        height: 72px;
+        min-height: 72px;
+    }
+
+    .site-logo {
+        width: 122px;
+    }
+
+    .main-nav {
+        inset: 10px 10px 10px auto;
+        width: calc(100vw - 20px);
+        max-height: calc(100dvh - 20px);
+        padding: 22px 28px;
+    }
+
+    .main-nav nav {
+        padding: 30px 0 20px;
+    }
+
+    .nav-list a {
+        padding: 21px 0;
+        font-size: 27px;
+    }
+
+    .nav-list a:last-child {
+        margin-top: 30px;
+        font-size: 12px;
+    }
+
+    .footer-cta-section {
+        min-height: 480px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-main>div:first-child {
+        margin-bottom: 18px;
+    }
+
+    .footer-logo {
+        width: 140px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

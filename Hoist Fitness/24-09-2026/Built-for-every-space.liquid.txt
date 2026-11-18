@@ -1,0 +1,233 @@
+{% comment %}
+  HOIST Fitness
+  Section: Built For Every Space
+  File: sections/built-for-every-space.liquid
+{% endcomment %}
+
+<section
+  class="hx-space"
+  id="section-{{ section.id }}"
+>
+  <div class="hx-space__container">
+
+    {% if section.settings.heading != blank or section.settings.description != blank %}
+      <div class="hx-space__header">
+
+        {% if section.settings.heading != blank %}
+          <h2 class="hx-space__heading">
+            {{ section.settings.heading | escape | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="hx-space__intro">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+
+    {% if section.blocks.size > 0 %}
+      <div class="hx-space__grid">
+
+        {% for block in section.blocks %}
+
+          {% assign card_url = block.settings.link %}
+
+          <article
+            class="hx-space-card"
+            {{ block.shopify_attributes }}
+          >
+
+            {% if card_url != blank %}
+              <a
+                href="{{ card_url }}"
+                class="hx-space-card__link-wrapper"
+                {% if block.settings.open_new_tab %}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                {% endif %}
+              >
+            {% endif %}
+
+
+            <div class="hx-space-card__media">
+
+              {% if block.settings.image != blank %}
+
+                {{
+                  block.settings.image
+                  | image_url: width: 1600
+                  | image_tag:
+                    class: 'hx-space-card__image',
+                    loading: 'lazy',
+                    widths: '400, 600, 800, 1000, 1200, 1400, 1600',
+                    sizes: '(max-width: 749px) 100vw, (max-width: 1100px) 50vw, 33vw',
+                    alt: block.settings.image.alt | default: block.settings.title
+                }}
+
+              {% else %}
+
+                <div class="hx-space-card__image-placeholder">
+                  Select an image
+                </div>
+
+              {% endif %}
+
+              <div class="hx-space-card__overlay"></div>
+
+
+              <div class="hx-space-card__content">
+
+                {% if block.settings.eyebrow != blank %}
+                  <span class="hx-space-card__eyebrow">
+                    {{ block.settings.eyebrow | escape }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <h3 class="hx-space-card__title">
+                    {{ block.settings.title | escape }}
+                  </h3>
+                {% endif %}
+
+              </div>
+
+            </div>
+
+
+            <div class="hx-space-card__body">
+
+              {% if block.settings.description != blank %}
+                <div class="hx-space-card__description">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+
+
+              {% if block.settings.cta_label != blank %}
+                <span class="hx-space-card__cta">
+                  {{ block.settings.cta_label | escape }}
+
+                  <span
+                    class="hx-space-card__arrow"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </span>
+              {% endif %}
+
+            </div>
+
+
+            {% if card_url != blank %}
+              </a>
+            {% endif %}
+
+          </article>
+
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Built For Every Space",
+  "tag": "section",
+  "class": "section-built-for-every-space",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BUILT FOR EVERY\nKIND OF SPACE."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Intro Description",
+      "default": "<p>Two environments, one engineering standard — from a 12,000 sq ft strength floor to a single room at home.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "space_card",
+      "name": "Space Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "COMMERCIAL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Built for performance at scale."
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Racks, selectorized machines, plate-loaded and freeweights specified for health clubs, universities, pro sport and hospitality.</p>"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "CTA Label",
+          "default": "ENTER THE COMMERCIAL EXPERIENCE"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open link in new tab",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Built For Every Space",
+      "blocks": [
+        {
+          "type": "space_card",
+          "settings": {
+            "eyebrow": "COMMERCIAL",
+            "title": "Built for performance at scale.",
+            "cta_label": "ENTER THE COMMERCIAL EXPERIENCE"
+          }
+        },
+        {
+          "type": "space_card",
+          "settings": {
+            "eyebrow": "HOME & LIGHT COMMERCIAL",
+            "title": "Strength, built around your space.",
+            "cta_label": "ENTER THE HOME EXPERIENCE"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

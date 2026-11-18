@@ -1,0 +1,518 @@
+/* ==========================================================================
+   GP SCROLL-REVEAL ANIMATION SYSTEM — v2
+   --------------------------------------------------------------------------
+   Changes from v1:
+   - Neutralizes the theme's OLD `.reveal` / `data-reveal` system so the
+     two systems can never both hide the same element at once (this was
+     the cause of images/sections that never appeared).
+   - Cards (.cg-card / .cg-blog-card / .cg-list / [data-reveal] cards)
+     now animate as ONE unit — the image inside no longer animates
+     separately from its card, so nothing looks like it's "not loading".
+   - Sliders/carousels and modals are excluded — they manage their own
+     visibility already.
+   ========================================================================== */
+
+:root {
+  /* Smooth, physically-natural deceleration (no bounce/overshoot) — the
+     same family of curve used by Apple/most premium sites. Used as the
+     default for nearly everything now, for a more consistent, realistic
+     feel across the whole page. */
+  --gp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gp-ease-soft: cubic-bezier(0.25, 1, 0.5, 1);
+
+  --gp-dur-xs: 0.5s;
+  --gp-dur-sm: 0.65s;
+  --gp-dur-md: 0.8s;
+  --gp-dur-lg: 1s;
+
+  --gp-dist-xs: 8px;
+  --gp-dist-sm: 12px;
+  --gp-dist-md: 18px;
+  --gp-dist-lg: 24px;
+
+  --gp-stagger-step: 0.1s;
+}
+
+/* --------------------------------------------------------------------------
+   0. NEUTRALIZE THE LEGACY .reveal SYSTEM
+   These elements already carry class="reveal" in the theme's PHP templates.
+   This file loads after dev2custom.css, so this rule wins and stops the
+   old opacity:0 default from ever fighting the new one. (You can also
+   delete the old `.reveal {...}` block in dev2custom.css directly — see
+   the chat guidance — but this line alone is enough to fix the conflict.)
+   -------------------------------------------------------------------------- */
+.reveal:not(.gp-armed) {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Respect OS-level reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+
+  .gp-armed,
+  .gp-armed.gp-in {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* ==========================================================================
+   1. KEYFRAMES
+   ========================================================================== */
+
+@keyframes gp-fx-hero {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-lg)) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gp-fx-rise-md {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-md));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gp-fx-side-l {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--gp-dist-md)));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gp-fx-emerge {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-sm)) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gp-fx-rise-sm {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-sm));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gp-fx-rise-xs {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-xs));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gp-fx-img-zoom {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gp-fx-img-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-lg));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gp-fx-img-wipe {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes gp-fx-card {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-md)) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gp-fx-btn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-sm)) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gp-fx-block {
+  from {
+    opacity: 0;
+    transform: translateY(var(--gp-dist-md));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   2. ARMED (pre-animation) STATES — only applied once JS adds .gp-armed
+   ========================================================================== */
+
+.gp-armed {
+  will-change: opacity, transform;
+}
+
+.gp-armed[data-gp="h1"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-lg)) scale(0.98);
+}
+
+.gp-armed[data-gp="h2-a"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-md));
+}
+
+.gp-armed[data-gp="h2-b"] {
+  opacity: 0;
+  transform: translateX(calc(-1 * var(--gp-dist-md)));
+}
+
+.gp-armed[data-gp="h2-c"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-sm)) scale(0.97);
+}
+
+.gp-armed[data-gp="h3"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-sm));
+}
+
+.gp-armed[data-gp="p"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-xs));
+}
+
+.gp-armed[data-gp="img-a"] {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+.gp-armed[data-gp="img-b"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-lg));
+}
+
+.gp-armed[data-gp="img-c"] {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(10px);
+}
+
+.gp-armed[data-gp="card"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-md)) scale(0.98);
+}
+
+.gp-armed[data-gp="btn"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-sm)) scale(0.98);
+}
+
+.gp-armed[data-gp="block"] {
+  opacity: 0;
+  transform: translateY(var(--gp-dist-md));
+}
+
+/* ==========================================================================
+   3. TRIGGERED STATE
+   ========================================================================== */
+
+.gp-armed[data-gp="h1"].gp-in {
+  animation: gp-fx-hero var(--gp-dur-lg) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="h2-a"].gp-in {
+  animation: gp-fx-rise-md var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="h2-b"].gp-in {
+  animation: gp-fx-side-l var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="h2-c"].gp-in {
+  animation: gp-fx-emerge var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="h3"].gp-in {
+  animation: gp-fx-rise-sm var(--gp-dur-sm) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="p"].gp-in {
+  animation: gp-fx-rise-xs var(--gp-dur-md) var(--gp-ease-soft) forwards;
+}
+
+.gp-armed[data-gp="img-a"].gp-in {
+  animation: gp-fx-img-zoom var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="img-b"].gp-in {
+  animation: gp-fx-img-rise var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="img-c"].gp-in {
+  animation: gp-fx-img-wipe var(--gp-dur-md) var(--gp-ease-soft) forwards;
+}
+
+.gp-armed[data-gp="card"].gp-in {
+  animation: gp-fx-card var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="btn"].gp-in {
+  animation: gp-fx-btn var(--gp-dur-xs) var(--gp-ease) forwards;
+}
+
+.gp-armed[data-gp="block"].gp-in {
+  animation: gp-fx-block var(--gp-dur-md) var(--gp-ease) forwards;
+}
+
+/* ==========================================================================
+   4. STAGGER for repeated items (cards / list items) in the same parent.
+   If a specific element already has an inline animation-delay (set by JS
+   from the theme's own data-reveal-delay attribute), that wins automatically
+   — inline style beats this class-based rule.
+   ========================================================================== */
+
+[data-gp="card"]:nth-child(1),
+[data-gp="block"]:nth-child(1) {
+  animation-delay: 0s;
+}
+
+[data-gp="card"]:nth-child(2),
+[data-gp="block"]:nth-child(2) {
+  animation-delay: calc(var(--gp-stagger-step) * 1);
+}
+
+[data-gp="card"]:nth-child(3),
+[data-gp="block"]:nth-child(3) {
+  animation-delay: calc(var(--gp-stagger-step) * 2);
+}
+
+[data-gp="card"]:nth-child(4),
+[data-gp="block"]:nth-child(4) {
+  animation-delay: calc(var(--gp-stagger-step) * 3);
+}
+
+[data-gp="card"]:nth-child(5),
+[data-gp="block"]:nth-child(5) {
+  animation-delay: calc(var(--gp-stagger-step) * 4);
+}
+
+[data-gp="card"]:nth-child(6),
+[data-gp="block"]:nth-child(6) {
+  animation-delay: calc(var(--gp-stagger-step) * 5);
+}
+
+[data-gp="card"]:nth-child(n+7),
+[data-gp="block"]:nth-child(n+7) {
+  animation-delay: calc(var(--gp-stagger-step) * 6);
+}
+
+/* ==========================================================================
+   5. SECTION-LEVEL VARIATION — automatic, no HTML changes needed
+   ========================================================================== */
+
+section:nth-of-type(even) .gp-armed.gp-in {
+  animation-timing-function: var(--gp-ease-soft);
+}
+
+section:nth-of-type(even) {
+  --gp-dist-md: 15px;
+  --gp-dist-lg: 22px;
+}
+
+/* ==========================================================================
+   6. MOBILE TUNING
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  :root {
+    --gp-dist-lg: 18px;
+    --gp-dist-md: 14px;
+    --gp-dist-sm: 10px;
+    --gp-dur-lg: 0.75s;
+    --gp-dur-md: 0.65s;
+  }
+}
+
+/* ==========================================================================
+   7. OPTIONAL — subtle hover polish (transitions, not keyframes)
+   ========================================================================== */
+
+.cg-card,
+.cg-blog-card,
+.cg-list {
+  transition: transform var(--gp-dur-xs) var(--gp-ease), box-shadow var(--gp-dur-xs) var(--gp-ease);
+}
+
+.cg-card:hover,
+.cg-blog-card:hover,
+.cg-list:hover {
+  transform: translateY(-4px);
+}
+
+.btn,
+.button,
+.black-button,
+.white-button {
+  transition: transform var(--gp-dur-xs) var(--gp-ease), opacity var(--gp-dur-xs) var(--gp-ease);
+}
+
+.btn:hover,
+.button:hover,
+.black-button:hover,
+.white-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Escape hatch: add this class to any ancestor to exclude its contents
+   from the auto-scan entirely. */
+.gp-no-anim,
+.gp-no-anim * {}
+
+/* ==========================================================================
+   8. SCROLL PROGRESS BAR
+   Fixed 3px strip at the very top of the page. Filled with a GPU-cheap
+   `transform: scaleX()` driven by JS — never touches layout, never touches
+   `transform` on any other element, so it can't conflict with anything.
+   ========================================================================== */
+
+/* .gp-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #000, #555);
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  z-index: 9999;
+  pointer-events: none;
+} */
+
+/* ==========================================================================
+   9. BACK-TO-TOP BUTTON
+   Injected by JS; hidden until you've scrolled past ~80% of one viewport.
+   ========================================================================== */
+
+.gp-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.35s var(--gp-ease), transform 0.35s var(--gp-ease), visibility 0.35s;
+  z-index: 9998;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.gp-to-top.gp-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.gp-to-top:hover {
+  transform: translateY(-3px);
+}
+
+.gp-to-top svg {
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 600px) {
+  .gp-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gp-to-top {
+    transition: opacity 0.2s linear;
+    transform: none;
+  }
+
+  .gp-to-top:hover {
+    transform: none;
+  }
+}
