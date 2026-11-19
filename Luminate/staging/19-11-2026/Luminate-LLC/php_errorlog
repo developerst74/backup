@@ -1,0 +1,5 @@
+[01-Mar-2016 13:26:05 CST6CDT] PHP Fatal error:  Call to undefined function language_attributes() in /home/luminat1/public_html/wp-content/themes/Luminate-LLC/header.php on line 4
+[01-Mar-2016 13:26:05 CST6CDT] PHP Fatal error:  Call to undefined function et_get_option() in /home/luminat1/public_html/wp-content/themes/Luminate-LLC/footer.php on line 1
+[01-Mar-2016 16:08:56 CST6CDT] PHP Fatal error:  Call to undefined function language_attributes() in /home/luminat1/public_html/wp-content/themes/Luminate-LLC/header.php on line 4
+[01-Mar-2016 16:08:57 CST6CDT] PHP Fatal error:  Call to undefined function et_get_option() in /home/luminat1/public_html/wp-content/themes/Luminate-LLC/footer.php on line 1
+[12-Mar-2016 23:04:19 CST6CDT] PHP Fatal error:  Call to undefined function et_get_option() in /home/luminat1/public_html/wp-content/themes/Luminate-LLC/footer.php on line 1
